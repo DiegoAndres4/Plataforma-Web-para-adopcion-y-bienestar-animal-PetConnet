@@ -89,16 +89,22 @@
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            
-            // Aquí puedes agregar la lógica de autenticación
-            console.log('Email:', email);
-            console.log('Password:', password);
-            
-            // Simulación de login exitoso
-            alert('¡Bienvenido a PetConnect!');
-            // window.location.href = 'index.html';
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Simulación de validación
+            if (email && password) {
+                // Guardar estado de sesión
+                localStorage.setItem("isLoggedIn", "true");
+                localStorage.setItem("userEmail", email);
+
+                alert('¡Bienvenido a PetConnect!');
+                
+                // Redirigir a la página con el menú logueado
+                window.location.href = "index-logueado.html"; // Usa el nombre que le diste a esa página
+            } else {
+                alert("Por favor ingresa tus datos.");
+            }
         });
     </script>
 </body>
