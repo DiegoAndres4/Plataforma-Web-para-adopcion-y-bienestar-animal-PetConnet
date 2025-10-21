@@ -1,0 +1,157 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f7f7f7;
+}
+
+/* ===== Colores ===== */
+.text-teal {
+  color: #1cb58f !important;
+}
+
+.bg-teal {
+  background-color: #1cb58f !important;
+}
+
+/* ===== Botones ===== */
+.btn-teal {
+  background-color: #1cb58f;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-teal:hover {
+  background-color: #159b7b;
+  transform: translateY(-2px);
+}
+
+.btn-outline-teal {
+  border: 1.8px solid #1cb58f;
+  color: #1cb58f;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-teal:hover {
+  background-color: #1cb58f;
+  color: #fff;
+}
+
+/* ===== Tarjetas ===== */
+.pet-card {
+  border-radius: 15px;
+  overflow: hidden;
+  background: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  margin: 20px; /* 🔹 espacio blanco entre cada tarjeta */
+}
+
+.pet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.pet-card img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1.3rem 1rem;
+  text-align: center;
+}
+
+/* ===== Título y texto ===== */
+.card-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+}
+
+.card-text {
+  font-size: 0.92rem;
+  color: #666;
+}
+
+/* ===== Estado (badge) ===== */
+.badge {
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+/* ===== Grid ===== */
+.container {
+  max-width: 1200px;
+}
+
+.row {
+  justify-content: center;
+}
+
+/* 🔹 Espaciado entre columnas y filas */
+.row > [class*="col-"] {
+  padding: 25px; /* espacio interno entre tarjetas */
+}
+
+/* 🔹 Espacio vertical entre filas */
+.row {
+  row-gap: 50px; /* agrega espacio visible entre las filas */
+}
+
+/* ===== Footer ===== */
+footer {
+  margin-top: 60px;
+  font-size: 0.9rem;
+}
+
+/* ===== Responsive ===== */
+@media (min-width: 992px) {
+  .pet-card {
+    margin: 30px; /* aún más espacio en pantallas grandes */
+  }
+
+  .row > [class*="col-"] {
+    padding: 35px;
+  }
+
+  .row {
+    row-gap: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pet-card img {
+    height: 240px;
+  }
+}
+/* ======== CORRECCIÓN DE ESPACIADO FORZADO ======== */
+.pet-card {
+  width: 340px !important; /* conserva el tamaño del diseño */
+  margin: 25px !important; /* 🔹 espacio real entre tarjetas */
+}
+
+.row {
+  justify-content: center !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 40px 40px !important; /* 🔹 separación horizontal y vertical */
+}
+
+/* ===== CORRECCIÓN DEFINITIVA DE ESPACIADO ===== */
+.custom-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px 50px; /* 🔹 espacio horizontal y vertical entre tarjetas */
+}
+
+.custom-grid .col-md-4,
+.custom-grid .col-lg-3 {
+  flex: 0 0 auto;
+}
+
+
