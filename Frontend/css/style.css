@@ -135,3 +135,81 @@ footer {
   padding: 15px;
   margin-top: 30px;
 }
+
+/* ======== SECCIÓN ADOPCIÓN ======== */
+
+/* Título principal */
+h1 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Barra de búsqueda */
+.busqueda {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.busqueda input {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  width: 50%;
+}
+
+/* Botones de filtro */
+.filtros .filtro {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  color: #333;
+  transition: 0.2s;
+}
+
+.filtros .filtro:hover,
+.filtros .filtro.active {
+  background: #1cb58f;
+  color: #fff;
+  border-color: #1cb58f;
+}
+
+/* Tarjetas de mascotas */
+.pet-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.pet-card:hover {
+  transform: scale(1.03);
+}
+
+.pet-card img {
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Botón adoptar */
+.btn-adoptar {
+  background: #1cb58f;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 20px;
+  border: none;
+  transition: 0.2s;
+}
+
+.btn-adoptar:hover {
+  background: #159b7b;
+  transform: scale(1.05);
+}
+
+.btn-adoptar.active {
+  background: #28a745 !important;
+}
