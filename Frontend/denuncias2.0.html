@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Denuncias | PetConnect</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="css/denuncias.css">
+</head>
+
+<body class="bg-light">
+
+  <!-- NAVBAR -->
+  
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="img/logo.png" alt="PetConnect">
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="adopcion.html">Adopción</a>
+      <a href="denuncias.html">Denuncias</a>
+      <a href="acercade.html">Acerca de</a>
+      <a href="contactenos.html">Contáctenos</a>
+      <a href="login.html" class="login-btn">Log In</a>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="container py-5">
+    <h2 class="fw-bold mb-2">Reporta y Ayuda</h2>
+    <p class="text-secondary mb-4">Tu acción protege a los animales. Completa el formulario para reportar casos de maltrato o animales perdidos/encontrados.</p>
+
+    <div class="row g-4">
+      <!-- Formulario -->
+      <div class="col-lg-8">
+        <div class="card shadow-sm border-0 p-4">
+          <h5 class="fw-semibold mb-3">Información del Reporte</h5>
+
+          <form>
+            <!-- Tipo de reporte -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Tipo de Reporte</label>
+              <div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tipo" id="maltrato" value="maltrato">
+                  <label class="form-check-label" for="maltrato">Maltrato Animal</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tipo" id="perdido" value="perdido">
+                  <label class="form-check-label" for="perdido">Animal Perdido/Encontrado</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ubicación -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Ubicación</label>
+              <input type="text" class="form-control" placeholder="Usar mi ubicación actual">
+            </div>
+
+            <!-- Descripción -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Descripción Detallada</label>
+              <textarea class="form-control" rows="4" placeholder="Describe la situación, tipo de animal, etc."></textarea>
+            </div>
+
+            <!-- Adjuntar -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Adjuntar Fotos o Videos</label>
+              <input class="form-control" type="file" multiple>
+              <small class="text-muted">Sube tus archivos aquí (hasta 3)</small>
+            </div>
+
+            <!-- Botones -->
+            <div class="d-flex gap-3 mt-4">
+              <button type="submit" class="btn btn-teal px-4">Enviar Reporte</button>
+              <button type="reset" class="btn btn-outline-secondary px-4">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Datos de contacto -->
+      <div class="col-lg-4">
+        <div class="card shadow-sm border-0 p-4">
+          <h5 class="fw-semibold mb-3">Tus Datos de Contacto</h5>
+          <form>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Nombre Completo">
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Correo Electrónico">
+            </div>
+            <div class="mb-3">
+              <input type="tel" class="form-control" placeholder="Teléfono de Contacto">
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="anonimo">
+              <label class="form-check-label" for="anonimo">Deseo mantener mi reporte anónimo</label>
+            </div>
+            <div class="alert alert-info small mb-0">
+              Tu identidad está protegida. Garantizamos un proceso seguro y confidencial.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4 text-muted small">
+      <i class="bi bi-shield-lock"></i> Conexión segura garantizada. Protocolos HTTPS.
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-teal text-white text-center py-3 mt-5">
+    © 2025 PetConnect — Unidos por el bienestar animal 🐾
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

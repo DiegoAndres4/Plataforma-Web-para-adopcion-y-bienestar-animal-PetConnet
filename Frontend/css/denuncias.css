@@ -1,0 +1,44 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.text-teal {
+  color: #1cb58f !important;
+}
+
+.bg-teal {
+  background-color: #1cb58f !important;
+}
+
+.btn-teal {
+  background-color: #1cb58f;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-teal:hover {
+  background-color: #159b7b;
+  transform: translateY(-2px);
+}
+
+.card {
+  border-radius: 15px;
+}
+
+textarea {
+  resize: none;
+}
+
+footer {
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
+
+.alert-info {
+  background-color: #e7f8f4;
+  color: #159b7b;
+  border: none;
+  border-left: 4px solid #1cb58f;
+}
