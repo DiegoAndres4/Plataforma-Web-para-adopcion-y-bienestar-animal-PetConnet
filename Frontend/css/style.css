@@ -453,3 +453,133 @@ h1 {
         font-size: 0.9rem;
     }
 }
+
+/* ======== ESTILOS EXTRA PARA denuncias.html ======== */
+
+/* Contenedor principal */
+.denuncias-container {
+  background-color: #fff;
+  padding: 40px 60px;
+  border-radius: 10px;
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+/* Título principal */
+.denuncias-container h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Subtítulo */
+.denuncias-container h2 {
+  color: #1cb58f;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* Navegación secundaria */
+.denuncias-tabs {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.denuncias-tabs button {
+  background: none;
+  border: none;
+  font-weight: 600;
+  padding-bottom: 8px;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: 0.3s;
+}
+
+.denuncias-tabs button.active {
+  border-color: #1cb58f;
+  color: #1cb58f;
+}
+
+/* Tarjetas */
+.denuncia-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.denuncia-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Imagen */
+.denuncia-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Contenido */
+.denuncia-content {
+  padding: 15px;
+}
+
+/* Estado */
+.estado {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #1cb58f;
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Colores por tipo de estado */
+.estado.revision { background-color: #1cb58f; }
+.estado.resuelto { background-color: #f4b400; }
+.estado.grave { background-color: #e74c3c; }
+.estado.enproceso { background-color: #3498db; }
+
+/* Botón de detalles */
+.btn-detalles {
+  background-color: #1cb58f;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-detalles:hover {
+  background-color: #17a582;
+}
+
+/* Paginación */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.pagination button {
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pagination button.active {
+  background-color: #1cb58f;
+  color: white;
+  border-color: #1cb58f;
+}
