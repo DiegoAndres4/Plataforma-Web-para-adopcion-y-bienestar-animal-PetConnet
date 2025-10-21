@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetConnect - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="img/logo.png" alt="PetConnect">
+        </a>
+        <div class="nav-links">
+            <a href="adopcion.html">Adopción</a>
+            <a href="donar.html">Denuncias</a>
+            <a href="Acercade.html">Acerca de</a>
+            <a href="Contactenos.html">Contáctenos</a>
+            <a href="login.html" class="login-btn">Log In</a>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <div class="login-box">
+            <div class="illustration-placeholder">
+                <img src="img/login-mascotas.png" alt="Mascotas felices">
+            </div>
+
+            <h1>Acceso Seguro</h1>
+            <p class="subtitle">Inicia sesión en tu cuenta para empezar tu viaje con PetConnect.</p>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <span class="input-icon">✉️</span>
+                        <input type="email" id="email" placeholder="Correo Electrónico" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" id="password" placeholder="Contraseña" required>
+                        <span class="password-toggle" onclick="togglePassword()">👁️</span>
+                    </div>
+                </div>
+
+                <div class="remember-forgot">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <span>Recordarme</span>
+                    </label>
+                    <a href="#" class="forgot-password">¿Tu contraseña?</a>
+                </div>
+
+                <button type="submit" class="submit-btn">Iniciar Sesión</button>
+            </form>
+
+            <p class="register-link">
+                ¿No tienes tu cuenta? <a href="registro.html">Regístrate aquí.</a>
+            </p>
+
+            <div class="security-note">
+                <span class="security-icon">🔒</span>
+                <span>Conexión segura garantía. Protocolos HTTPS.</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 PetConnect. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggle = document.querySelector('.password-toggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggle.textContent = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                toggle.textContent = '👁️';
+            }
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Aquí puedes agregar la lógica de autenticación
+            console.log('Email:', email);
+            console.log('Password:', password);
+            
+            // Simulación de login exitoso
+            alert('¡Bienvenido a PetConnect!');
+            // window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
