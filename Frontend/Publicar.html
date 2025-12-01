@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicar Animal</title>
+
+    <!-- Conexión correcta con tu CSS -->
+    <link rel="stylesheet" href="css/publicar.css">
+</head>
+<body>
+
+    <div class="publicar-container">
+        <h2>Publicar un nuevo Amigo</h2>
+
+        <div class="tabs">
+            <button class="active">Mis Publicaciones</button>
+            <button>Mis Publicaciones</button>
+        </div>
+
+        <form class="form-publicar">
+
+            <!-- Subir fotos -->
+            <div class="form-section">
+                <h3>Información del Animal</h3>
+                <div class="upload-box">
+                    <span>📷</span>
+                    <p>Sube tus fotos aquí (hasta 5)</p>
+                    <input type="file" multiple accept="image/*">
+                </div>
+
+                <div class="grid-2">
+                    <input type="text" placeholder="Nombre">
+                    <input type="text" placeholder="Especie">
+                    <input type="text" placeholder="Raza">
+                    <input type="text" placeholder="Género">
+                </div>
+
+                <div class="options">
+                    <label><input type="radio" name="edad"> Cachorro</label>
+                    <label><input type="radio" name="edad"> Adulto</label>
+                </div>
+
+                <div class="options">
+                    <label><input type="radio" name="tam"> Mediana</label>
+                    <label><input type="radio" name="tam"> Senior</label>
+                </div>
+            </div>
+
+            <!-- Descripción -->
+            <div class="form-section">
+                <h3>Detalles y Personalidad</h3>
+                <textarea placeholder="Escribe aquí sobre su personalidad, historia y necesidades..."></textarea>
+
+                <div class="checkbox-group">
+                    <label><input type="checkbox"> Sano</label>
+                    <label><input type="checkbox" checked> Vacunado</label>
+                    <label><input type="checkbox"> Desparasitado</label>
+                    <label><input type="checkbox"> Esterilizado/Castrado</label>
+                    <label><input type="checkbox"> Necesidades especiales</label>
+                </div>
+            </div>
+
+            <!-- Estado de salud -->
+            <div class="form-section">
+                <h3>Estado de Salud</h3>
+                <input type="text" placeholder="Ubicación">
+            </div>
+
+            <!-- Requisitos -->
+            <div class="form-section">
+                <h3>Requisitos de Adopción</h3>
+                <textarea placeholder="Escribe aquí los requisitos específicos para adoptar..."></textarea>
+            </div>
+
+            <div class="button-row">
+                <button type="submit" class="btn-publicar">Publicar Animal</button>
+                <button type="button" class="btn-cancelar">Cancelar</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
