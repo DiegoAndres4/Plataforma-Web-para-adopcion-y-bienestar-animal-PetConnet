@@ -875,3 +875,149 @@ h1 {
 .pilar-card:hover .pilar-info {
   opacity: 1;
 }
+/* ======== PÁGINA DE CONTACTO ======== */
+
+.contact-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 50px;
+    background: #ececec;
+    min-height: calc(100vh - 140px); /* Adjust based on navbar/footer height */
+}
+
+.contact-main-wrapper {
+    display: flex;
+    gap: 40px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    max-width: 1100px;
+    width: 100%;
+}
+
+.contact-info, .contact-form-container {
+    flex: 1;
+}
+
+/* --- Left Column: Info --- */
+.contact-info h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.contact-info .subtitle {
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.contact-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-icon {
+    background-color: #f0fdf9;
+    color: #1cb58f;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.contact-item-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* --- Right Column: Form --- */
+.contact-form-container h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #333;
+    text-align: center;
+}
+
+/* Reusing login form styles for consistency */
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form .input-wrapper {
+    /* This class is already defined in your login styles, no need to repeat */
+    /* It provides the nice background, border, and focus effect. */
+}
+
+.contact-form .input-wrapper textarea {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 15px;
+    color: #333;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form .input-wrapper textarea::placeholder {
+    color: #999;
+}
+
+.contact-form .submit-btn {
+    /* This class is also defined in your login styles. */
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+/* --- Responsive Design for Contact Page --- */
+@media (max-width: 992px) {
+    .contact-main-wrapper {
+        flex-direction: column;
+        gap: 50px;
+        padding: 30px;
+    }
+
+    .contact-info h1 {
+        text-align: center;
+    }
+
+    .contact-info .subtitle {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-page-container {
+        padding: 40px 20px;
+    }
+
+    .contact-main-wrapper {
+        padding: 25px;
+    }
+
+    .contact-info h1 {
+        font-size: 2rem;
+    }
+}
