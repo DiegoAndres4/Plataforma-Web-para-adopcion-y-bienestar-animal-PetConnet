@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetConnect - Formulario de Adopción</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/adoptar.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="img/logo.png" alt="PetConnect">
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="adopcion.html">Adopción</a>
+      <a href="denuncias.html">Denuncias</a>
+      <a href="acercade.html">Acerca de</a>
+      <a href="contactenos.html">Contáctenos</a>
+      <a href="login.html" class="login-btn">Log In</a>
+    </div>
+  </nav>
+
+  <!-- FORMULARIO DE ADOPCIÓN -->
+  <div class="adopcion-container">
+    
+    <!-- Header -->
+    <div class="adopcion-header">
+      <div class="icon">🐾</div>
+      <h1>Formulario de Adopción</h1>
+      <p>Completa el siguiente formulario para iniciar el proceso de adopción</p>
+    </div>
+
+    <!-- Info de la mascota -->
+    <div class="mascota-info-box">
+      <div class="mascota-icon">🐕</div>
+      <div>
+        <h4>Mascota seleccionada: <span id="nombreMascota">Mascota</span></h4>
+        <p>¡Gracias por querer darle un hogar a este amiguito!</p>
+      </div>
+    </div>
+
+    <form id="formAdopcion">
+      
+      <!-- SECCIÓN: Datos Personales -->
+      <h3 class="section-title">
+        <span class="section-icon">👤</span>
+        Datos Personales
+      </h3>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="nombre">Nombre Completo <span class="required">*</span></label>
+            <input type="text" id="nombre" name="nombre" class="form-input" 
+                   placeholder="Ingresa tu nombre completo" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="documento">Número de Documento <span class="required">*</span></label>
+            <input type="text" id="documento" name="documento" class="form-input" 
+                   placeholder="Ej: 12345678" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="edad">Edad <span class="required">*</span></label>
+            <input type="number" id="edad" name="edad" class="form-input" 
+                   min="18" max="100" placeholder="Debes ser mayor de 18 años" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="estadoCivil">Estado Civil <span class="required">*</span></label>
+            <select id="estadoCivil" name="estadoCivil" class="form-select" required>
+              <option value="">Selecciona una opción</option>
+              <option value="soltero">Soltero/a</option>
+              <option value="casado">Casado/a</option>
+              <option value="unionLibre">Unión Libre</option>
+              <option value="divorciado">Divorciado/a</option>
+              <option value="viudo">Viudo/a</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="ocupacion">Ocupación <span class="required">*</span></label>
+        <input type="text" id="ocupacion" name="ocupacion" class="form-input" 
+               placeholder="¿A qué te dedicas?" required>
+      </div>
+
+      <!-- SECCIÓN: Información de Contacto -->
+      <h3 class="section-title">
+        <span class="section-icon">📱</span>
+        Información de Contacto
+      </h3>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="celular">Número de Celular <span class="required">*</span></label>
+            <input type="tel" id="celular" name="celular" class="form-input" 
+                   placeholder="Ej: 300 123 4567" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="email">Correo Electrónico <span class="required">*</span></label>
+            <input type="email" id="email" name="email" class="form-input" 
+                   placeholder="ejemplo@correo.com" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="direccion">Dirección <span class="required">*</span></label>
+        <input type="text" id="direccion" name="direccion" class="form-input" 
+               placeholder="Dirección completa de residencia" required>
+      </div>
+
+      <!-- SECCIÓN: Disponibilidad -->
+      <h3 class="section-title">
+        <span class="section-icon">⏰</span>
+        Disponibilidad para el Cuidado
+      </h3>
+
+      <div class="form-group">
+        <label>¿Cuántas horas al día puedes dedicarle a la mascota? <span class="required">*</span></label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="horasDisponibles" value="1-2" required>
+            <span>1-2 horas</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="horasDisponibles" value="3-4">
+            <span>3-4 horas</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="horasDisponibles" value="5+">
+            <span>5+ horas</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="horasDisponibles" value="tiempo-completo">
+            <span>Tiempo completo</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>¿Tienes experiencia previa con mascotas? <span class="required">*</span></label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="experiencia" value="si" required>
+            <span>Sí, tengo experiencia</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="experiencia" value="no">
+            <span>No, es mi primera vez</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- SECCIÓN: Información del Hogar -->
+      <h3 class="section-title">
+        <span class="section-icon">🏠</span>
+        Información del Hogar
+      </h3>
+
+      <div class="form-group">
+        <label>Tipo de vivienda <span class="required">*</span></label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="tipoVivienda" value="casa" required>
+            <span>Casa</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tipoVivienda" value="apartamento">
+            <span>Apartamento</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tipoVivienda" value="finca">
+            <span>Finca</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>¿La vivienda es propia o arrendada? <span class="required">*</span></label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="propiedadVivienda" value="propia" id="viviendaPropia" required>
+            <span>Propia</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="propiedadVivienda" value="arrendada" id="viviendaArrendada">
+            <span>Arrendada</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="propiedadVivienda" value="familiar" id="viviendaFamiliar">
+            <span>Familiar</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Campo condicional: Si es arrendada -->
+      <div class="conditional-field" id="campoArrendado">
+        <div class="form-group" style="margin-bottom: 0;">
+          <label>¿El arrendador permite mascotas? <span class="required">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="permitenMascotas" value="si">
+              <span>Sí, está permitido</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="permitenMascotas" value="no">
+              <span>No está permitido</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="permitenMascotas" value="consultar">
+              <span>Debo consultar</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>¿Tienes otras mascotas actualmente?</label>
+        <div class="checkbox-group">
+          <label class="checkbox-option">
+            <input type="checkbox" name="otrasMascotas" value="perros">
+            <span>Perros</span>
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox" name="otrasMascotas" value="gatos">
+            <span>Gatos</span>
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox" name="otrasMascotas" value="aves">
+            <span>Aves</span>
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox" name="otrasMascotas" value="otros">
+            <span>Otros</span>
+          </label>
+          <label class="checkbox-option">
+            <input type="checkbox" name="otrasMascotas" value="ninguna" id="sinMascotas">
+            <span>Ninguna</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="espacioExterior">¿Cuentas con espacio exterior?</label>
+        <select id="espacioExterior" name="espacioExterior" class="form-select">
+          <option value="">Selecciona una opción</option>
+          <option value="jardin-grande">Jardín grande</option>
+          <option value="jardin-pequeno">Jardín pequeño</option>
+          <option value="terraza">Terraza</option>
+          <option value="balcon">Balcón</option>
+          <option value="ninguno">Sin espacio exterior</option>
+        </select>
+      </div>
+
+      <!-- SECCIÓN: Información Adicional -->
+      <h3 class="section-title">
+        <span class="section-icon">📝</span>
+        Información Adicional
+      </h3>
+
+      <div class="form-group">
+        <label for="motivoAdopcion">¿Por qué deseas adoptar esta mascota?</label>
+        <textarea id="motivoAdopcion" name="motivoAdopcion" class="form-textarea" 
+                  placeholder="Cuéntanos tus motivos para adoptar..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>¿Te comprometes a brindar vacunación, alimentación adecuada y permitir visitas de seguimiento? <span class="required">*</span></label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="compromiso" value="si" required>
+            <span>Sí, me comprometo</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="compromiso" value="no">
+            <span>No estoy seguro/a</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Nota informativa -->
+      <div class="info-note">
+        <span class="note-icon">ℹ️</span>
+        <span>Al enviar este formulario, aceptas que la información proporcionada es verídica y que un representante de PetConnect se comunicará contigo para continuar con el proceso de adopción.</span>
+      </div>
+
+      <!-- Botones -->
+      <div class="form-buttons">
+        <a href="adopcion.html" class="btn-volver">← Volver</a>
+        <button type="submit" class="btn-enviar">Enviar Solicitud 🐾</button>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 PetConnect. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Mostrar/ocultar campo condicional cuando es arrendada
+    const radioArrendada = document.getElementById('viviendaArrendada');
+    const radioPropia = document.getElementById('viviendaPropia');
+    const radioFamiliar = document.getElementById('viviendaFamiliar');
+    const campoArrendado = document.getElementById('campoArrendado');
+
+    function toggleCampoArrendado() {
+      if (radioArrendada.checked) {
+        campoArrendado.classList.add('show');
+      } else {
+        campoArrendado.classList.remove('show');
+      }
+    }
+
+    radioArrendada.addEventListener('change', toggleCampoArrendado);
+    radioPropia.addEventListener('change', toggleCampoArrendado);
+    radioFamiliar.addEventListener('change', toggleCampoArrendado);
+
+    // Obtener nombre de mascota de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const mascotaNombre = urlParams.get('mascota');
+    if (mascotaNombre) {
+      document.getElementById('nombreMascota').textContent = mascotaNombre;
+    }
+
+    // Validación del formulario
+    document.getElementById('formAdopcion').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Validar edad mínima
+      const edad = document.getElementById('edad').value;
+      if (edad < 18) {
+        alert('⚠️ Debes ser mayor de 18 años para adoptar.');
+        return;
+      }
+
+      // Validar si es arrendada y no permite mascotas
+      if (radioArrendada.checked) {
+        const noPermiten = document.querySelector('input[name="permitenMascotas"][value="no"]');
+        if (noPermiten && noPermiten.checked) {
+          alert('⚠️ Lamentablemente, si tu arrendador no permite mascotas, no podemos procesar la adopción. Te recomendamos hablar con tu arrendador primero.');
+          return;
+        }
+      }
+
+      // Si todo está bien, mostrar mensaje de éxito
+      alert('🎉 ¡Solicitud enviada con éxito!\n\nNos pondremos en contacto contigo pronto para continuar con el proceso de adopción.');
+      
+      // Redirigir a la página de adopción
+      window.location.href = 'adopcion.html';
+    });
+  </script>
+</body>
+</html>

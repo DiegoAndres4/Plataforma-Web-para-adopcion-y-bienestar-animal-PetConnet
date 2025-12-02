@@ -813,3 +813,484 @@ h1 {
   color: white;
   border-color: #1cb58f;
 }
+
+/* ----- SECCIÓN EDUCACIÓN ----- */
+.educacion-section {
+  background-color: #f9f9f9;
+  padding: 50px 0;
+}
+
+.educacion-section h1 {
+  color: #1b4d3e;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.educacion-section p {
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.educacion-banner {
+  max-width: 400px;
+  margin-top: 20px;
+}
+
+.pilar-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.pilar-card .icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.pilar-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.pilar-info {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 181, 143, 0.95);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.pilar-card:hover .pilar-info {
+  opacity: 1;
+}
+/* ======== PÁGINA DE CONTACTO ======== */
+
+.contact-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 50px;
+    background: #ececec;
+    min-height: calc(100vh - 140px); /* Adjust based on navbar/footer height */
+}
+
+.contact-main-wrapper {
+    display: flex;
+    gap: 40px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    max-width: 1100px;
+    width: 100%;
+}
+
+.contact-info, .contact-form-container {
+    flex: 1;
+}
+
+/* --- Left Column: Info --- */
+.contact-info h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.contact-info .subtitle {
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.contact-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-icon {
+    background-color: #f0fdf9;
+    color: #1cb58f;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.contact-item-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* --- Right Column: Form --- */
+.contact-form-container h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #333;
+    text-align: center;
+}
+
+/* Reusing login form styles for consistency */
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form .input-wrapper {
+    /* This class is already defined in your login styles, no need to repeat */
+    /* It provides the nice background, border, and focus effect. */
+}
+
+.contact-form .input-wrapper textarea {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 15px;
+    color: #333;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form .input-wrapper textarea::placeholder {
+    color: #999;
+}
+
+.contact-form .submit-btn {
+    /* This class is also defined in your login styles. */
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+/* --- Responsive Design for Contact Page --- */
+@media (max-width: 992px) {
+    .contact-main-wrapper {
+        flex-direction: column;
+        gap: 50px;
+        padding: 30px;
+    }
+
+    .contact-info h1 {
+        text-align: center;
+    }
+
+    .contact-info .subtitle {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-page-container {
+        padding: 40px 20px;
+    }
+
+    .contact-main-wrapper {
+        padding: 25px;
+    }
+
+    .contact-info h1 {
+        font-size: 2rem;
+    }
+}
+/* ======== DASHBOARD DE USUARIO (index-logueado.html) ======== */
+
+.dashboard-container {
+    padding: 40px 50px;
+    max-width: 1200px;
+    margin: 20px auto 50px auto;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.dashboard-header h1 {
+    font-size: 2.5rem;
+    color: #1cb58f;
+    margin-bottom: 10px;
+}
+
+.dashboard-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.dashboard-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.summary-card {
+    background: #f8f8f8;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.summary-card .card-icon {
+    font-size: 2.5rem;
+    color: #1cb58f;
+    background: #e6f6f3;
+    padding: 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.summary-card .card-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.summary-card .card-content .count {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #1cb58f;
+    margin-bottom: 5px;
+}
+
+.summary-card .card-content .description {
+    font-size: 0.95rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.summary-card .card-content .btn-small {
+    background: #1cb58f;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.summary-card .card-content .btn-small:hover {
+    background: #159b7b;
+    transform: translateY(-1px);
+}
+
+.dashboard-sections {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr; /* Adjust ratios as needed */
+    gap: 40px;
+}
+
+.recent-activity, .quick-actions {
+    background: #fdfdfd;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.recent-activity h2, .quick-actions h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: #555;
+    padding: 10px 0;
+    border-bottom: 1px dashed #f0f0f0;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    color: #1cb58f;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+}
+
+.activity-item p {
+    flex-grow: 1;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.activity-time {
+    font-size: 0.85rem;
+    color: #999;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: 5px;
+    color: white; /* Default white text */
+}
+
+/* Reusing existing status colors for consistency */
+.status-badge.revision { background-color: #1cb58f; }
+.status-badge.resuelto { background-color: #f4b400; }
+.status-badge.grave { background-color: #e74c3c; }
+.status-badge.enproceso { background-color: #3498db; }
+
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.action-btn {
+    background: #e6f6f3;
+    border: 1px solid #1cb58f;
+    border-radius: 10px;
+    padding: 20px 15px;
+    text-align: center;
+    text-decoration: none;
+    color: #1cb58f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.action-btn:hover {
+    background: #1cb58f;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(28, 181, 143, 0.2);
+}
+
+.action-btn i {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+/* Responsive adjustments for dashboard */
+@media (max-width: 992px) {
+    .dashboard-sections {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 30px 20px;
+        margin: 15px auto 30px auto;
+    }
+    .dashboard-header h1 {
+        font-size: 2rem;
+    }
+    .dashboard-header p {
+        font-size: 1rem;
+    }
+    .dashboard-summary-grid {
+        grid-template-columns: 1fr; /* Stack summary cards on very small screens */
+    }
+    .summary-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    .summary-card .card-icon {
+        margin-bottom: 15px;
+    }
+    .recent-activity, .quick-actions {
+        padding: 25px 20px;
+    }
+    .actions-grid {
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    }
+    .action-btn i {
+        font-size: 1.8rem;
+    }
+    .action-btn span {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-container {
+        margin: 10px auto 20px auto;
+        padding: 20px 15px;
+    }
+    .dashboard-header h1 {
+        font-size: 1.8rem;
+    }
+    .summary-card .card-content .count {
+        font-size: 1.8rem;
+    }
+}

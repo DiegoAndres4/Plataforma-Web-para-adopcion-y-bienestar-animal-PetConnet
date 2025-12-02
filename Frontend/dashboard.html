@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - PetConnect</title>
+    <!-- IMPORTANT: Add Font Awesome for icons if not already present -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- user-menu.css might not be needed if all styles are in style.css, as per your full CSS block -->
+    <!-- <link rel="stylesheet" href="css/user-menu.css"> --> 
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index-logueado.html" class="logo">
+            <img src="img/logo.png" alt="PetConnect">
+        </a>
+        <div class="nav-links">
+            <!-- MENÚ DE USUARIO (Mostrar cuando está logueado) -->
+            <div class="user-menu-container">
+                <div class="user-menu-btn" onclick="toggleUserMenu()">
+                    <div class="user-avatar">
+                        <!-- Opción 1: Iniciales del usuario -->
+                        RP
+                        <!-- Opción 2: Imagen del usuario (descomenta si tienes foto) -->
+                        <!-- <img src="img/user-avatar.jpg" alt="Usuario"> -->
+                    </div>
+                    <span class="user-name">Refugio Patitas Felices</span>
+                    <span class="dropdown-arrow"><i class="fa-solid fa-chevron-down"></i></span> <!-- Changed to Font Awesome icon -->
+                </div>
+
+                <!-- Dropdown Menu -->
+                <div class="user-dropdown" id="userDropdown">
+                    <!-- Header con info del usuario -->
+                    <div class="dropdown-header">
+                        <div class="user-avatar">RP</div>
+                        <div class="dropdown-user-info">
+                            <div class="dropdown-user-name">Refugio Patitas Felices</div>
+                            <div class="dropdown-user-email">refugio@patitas.com</div>
+                        </div>
+                    </div>
+
+                    <!-- Menú de opciones -->
+                    <div class="dropdown-menu">
+                        <a href="perfil.html" class="dropdown-item">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-user"></i></span>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Mi Perfil</span>
+                            </div>
+                        </a>
+
+                        <a href="mis-publicaciones.html" class="dropdown-item">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-paw"></i></span>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Mis Publicaciones</span>
+                                <span class="dropdown-item-description">Mascotas en adopción</span>
+                            </div>
+                        </a>
+
+                        <a href="mis-adopciones.html" class="dropdown-item"> <!-- Changed to mis-adopciones.html for consistency -->
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-house-heart"></i></span>                                                                                                          
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Mis Adopciones</span>
+                                <span class="dropdown-item-description">Historial de adopciones</span>
+                            </div>
+                        </a>
+
+                        <a href="mis-denuncias.html" class="dropdown-item"> <!-- Changed to mis-denuncias.html for consistency -->
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-bell"></i></span>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Mis Denuncias</span>
+                                <span class="dropdown-item-description">Reportes realizados</span>
+                            </div>
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <a href="#" class="dropdown-item logout" onclick="logout()">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Cerrar Sesión</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Bienvenido de Nuevo, Refugio Patitas Felices!</h1>
+            <p>Aquí puedes gestionar tus publicaciones, denuncias y el estado de tus mascotas en adopción.</p>
+        </div>
+
+        <div class="dashboard-summary-grid">
+            <!-- Summary Card: Mis Publicaciones -->
+            <div class="summary-card">
+                <div class="card-icon"><i class="fa-solid fa-paw"></i></div>
+                <div class="card-content">
+                    <h3>Mis Publicaciones</h3>
+                    <p class="count">5</p> <!-- Placeholder: Replace with dynamic data -->
+                    <p class="description">Mascotas en adopción activas</p>
+                    <a href="mis-publicaciones.html" class="btn-small">Ver todas</a>
+                </div>
+            </div>
+
+            <!-- Summary Card: Mis Denuncias -->
+            <div class="summary-card">
+                <div class="card-icon"><i class="fa-solid fa-bell"></i></div>
+                <div class="card-content">
+                    <h3>Mis Denuncias</h3>
+                    <p class="count">2</p> <!-- Placeholder: Replace with dynamic data -->
+                    <p class="description">Reportes pendientes o en revisión</p>
+                    <a href="mis-denuncias.html" class="btn-small">Ver estado</a>
+                </div>
+            </div>
+
+            <!-- Summary Card: Mis Adopciones -->
+            <div class="summary-card">
+                <div class="card-icon"><i class="fa-solid fa-heart"></i></div>
+                <div class="card-content">
+                    <h3>Mis Adopciones</h3>
+                    <p class="count">3</p> <!-- Placeholder: Replace with dynamic data -->
+                    <p class="description">Adopciones concretadas</p>
+                    <a href="mis-adopciones.html" class="btn-small">Ver historial</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-sections">
+            <!-- Recent Activity Section -->
+            <section class="recent-activity">
+                <h2>Actividad Reciente</h2>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <span class="activity-icon"><i class="fa-solid fa-circle-info"></i></span>
+                        <p>El estado de la denuncia #123456 ha cambiado a <span class="status-badge revision">En Revisión</span>.</p>
+                        <span class="activity-time">Hace 5 minutos</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-icon"><i class="fa-solid fa-plus-circle"></i></span>
+                        <p>Se ha añadido una nueva publicación de 'Max'.</p>
+                        <span class="activity-time">Hace 2 horas</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-icon"><i class="fa-solid fa-comment"></i></span>
+                        <p>Nuevo mensaje en tu publicación de 'Luna'.</p>
+                        <span class="activity-time">Ayer</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-icon"><i class="fa-solid fa-check-circle"></i></span>
+                        <p>La adopción de 'Rocky' ha sido concretada. ¡Felicidades!</p>
+                        <span class="activity-time">Hace 3 días</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions Section -->
+            <section class="quick-actions">
+                <h2>Acciones Rápidas</h2>
+                <div class="actions-grid">
+                    <a href="publicar-mascota.html" class="action-btn">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Publicar Mascota</span>
+                    </a>
+                    <a href="nueva-denuncia.html" class="action-btn">
+                        <i class="fa-solid fa-flag"></i>
+                        <span>Hacer Denuncia</span>
+                    </a>
+                    <a href="editar-perfil.html" class="action-btn">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Editar Perfil</span>
+                    </a>
+                    <a href="explorar-adopciones.html" class="action-btn">
+                        <i class="fa-solid fa-search"></i>
+                        <span>Buscar Mascotas</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 PetConnect. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Toggle del menú de usuario
+        function toggleUserMenu() {
+            const dropdown = document.getElementById('userDropdown');
+            const btn = document.querySelector('.user-menu-btn');
+            
+            dropdown.classList.toggle('active');
+            btn.classList.toggle('active');
+        }
+
+        // Cerrar el menú si se hace clic fuera
+        document.addEventListener('click', function(event) {
+            const userMenu = document.querySelector('.user-menu-container');
+            const dropdown = document.getElementById('userDropdown');
+            
+            // Check if the click is outside the user menu container AND the dropdown is open
+            if (!userMenu.contains(event.target) && dropdown.classList.contains('active')) {
+                dropdown.classList.remove('active');
+                document.querySelector('.user-menu-btn').classList.remove('active');
+            }
+        });
+
+        // Función de logout
+        function logout() {
+            if (confirm('¿Estás seguro que deseas cerrar sesión?')) {
+                // Aquí agregarías la lógica real para cerrar sesión
+                // Por ejemplo: limpiar localStorage, cookies, enviar a un endpoint de logout
+                alert('Sesión cerrada exitosamente');
+                window.location.href = 'index.html'; // Redirigir a la página principal no logueada
+            }
+            return false;
+        }
+
+        // Simulación: Verificar si el usuario está logueado
+        // En una aplicación real, esta función obtendría el estado de login y datos del usuario
+        // Por ahora, asumimos que siempre está logueado para mostrar el dashboard
+        function checkLoginStatus() {
+            const isLoggedIn = true; // For demonstration, assume logged in
+            
+            // In a real app, if (!isLoggedIn) redirect to login page.
+            // For now, if isLoggedIn is false, nothing would happen to the user menu on this page.
+        }
+
+        // Ejecutar al cargar la página
+        checkLoginStatus();
+    </script>
+</body>
+</html>
