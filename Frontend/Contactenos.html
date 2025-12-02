@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - PetConnect</title>
+    <!-- IMPORTANT: Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+
+    <!-- Your existing Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="img/logo.png" alt="PetConnect">
+        </a>
+        <div class="nav-links">
+            <a href="adopcion.html">Adopción</a>
+            <a href="denuncias.html">Denuncias</a>
+            <a href="acerca.html">Acerca de</a>
+            <a href="Contactenos.html">Contacto</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
+    </nav>
+
+    <!-- Main Content for the Contact Page -->
+    <main class="contact-page-container">
+        <div class="contact-main-wrapper">
+            
+            <!-- Left Column: Information -->
+            <div class="contact-info">
+                <h1>Ponte en Contacto</h1>
+                <p class="subtitle">
+                    ¿Tienes preguntas, sugerencias o necesitas ayuda? Estamos aquí para escucharte. 
+                    Usa el formulario o contáctanos directamente a través de los canales a continuación.
+                </p>
+                <ul class="contact-details">
+                    <li class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <span class="contact-item-text">+1 (555) 123-4567</span>
+                    </li>
+                    <li class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <span class="contact-item-text">ayuda@petconnect.com</span>
+                    </li>
+                    <li class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-map-marker-alt"></i></div>
+                        <span class="contact-item-text">123 Pet Street, Animal City, AC 12345</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Column: Contact Form -->
+            <div class="contact-form-container">
+                <h2>Envíanos un Mensaje</h2>
+                <!-- ADD THE ID 'contact-form' TO THE FORM TAG -->
+                <form id="contact-form" action="#" method="POST" class="contact-form">
+                    
+                    <!-- Name Input -->
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <i class="input-icon fa-solid fa-user"></i>
+                            <input type="text" id="nombre" name="nombre" placeholder="Nombre Completo" required>
+                        </div>
+                    </div>
+                    
+                    <!-- Email Input -->
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <i class="input-icon fa-solid fa-at"></i>
+                            <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
+                        </div>
+                    </div>
+
+                    <!-- Message Textarea -->
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                             <i class="input-icon fa-solid fa-pen-to-square"></i>
+                             <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn">Enviar Mensaje</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+    
+    <!-- Your existing Footer -->
+    <footer>
+        <p>&copy; 2025 PetConnect. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- 1. EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <!-- 2. Your Custom Script -->
+    <script type="text/javascript">
+        (function() {
+            // Get your keys from https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+              publicKey: "I6O9WBYbiO4-gO_Xm",
+            });
+        })();
+
+        window.onload = function() {
+            const contactForm = document.getElementById('contact-form');
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                // These IDs from the previous steps
+                const serviceID = 'service_petconnect';
+                const templateID = 'template_adfnk3o';
+
+                // Change button text and disable it to prevent multiple submissions
+                submitBtn.textContent = 'Enviando...';
+                submitBtn.disabled = true;
+
+                // Send the form data using EmailJS
+                emailjs.sendForm(serviceID, templateID, this)
+                    .then(() => {
+                        // On Success
+                        submitBtn.textContent = 'Enviar Mensaje';
+                        submitBtn.disabled = false;
+                        alert('¡Mensaje enviado con éxito!');
+                        contactForm.reset(); // Clear the form fields
+                    }, (err) => {
+                        // On Error
+                        submitBtn.textContent = 'Enviar Mensaje';
+                        submitBtn.disabled = false;
+                        alert('Ocurrió un error. Por favor, inténtalo de nuevo.\n' + JSON.stringify(err));
+                    });
+            });
+        }
+    </script>
+
+</body>
+</html>
