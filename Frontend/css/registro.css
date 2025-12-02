@@ -193,15 +193,15 @@ body {
 
 .input-icon {
     position: absolute;
-    left: 15px;
+    left: 19px;
     color: #888;
-    font-size: 1rem;
+    font-size: 1.2rem;
     pointer-events: none;
 }
 
 input {
     width: 100%;
-    padding: 14px 15px 14px 45px;
+   padding: 12px 50px 12px 50px;
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 1rem;
@@ -422,7 +422,7 @@ footer {
     }
     
     input {
-        padding: 12px 15px 12px 40px;
+        padding: 12px 15px 12px 50px;
     }
     
     .input-icon {
