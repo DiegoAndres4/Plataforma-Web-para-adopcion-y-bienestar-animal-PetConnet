@@ -3,83 +3,436 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publicar Animal</title>
-
-    <!-- Conexión correcta con tu CSS -->
+    <title>Publicar Animal en Adopción</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/publicar.css">
 </head>
 <body>
 
-    <div class="publicar-container">
-        <h2>Publicar un nuevo Amigo</h2>
-
-        <div class="tabs">
-            <button class="active">Mis Publicaciones</button>
-            <button>Mis Publicaciones</button>
+    <!-- Navbar (incluir tu navbar aquí) -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo">
         </div>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="adopcion.html">Adopción</a>
+            <a href="denuncias.html">Denuncias</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+    </nav>
 
-        <form class="form-publicar">
+    <div class="publicar-page">
+        <div class="publicar-container">
+            
+            <!-- Header del formulario -->
+            <div class="publicar-header">
+                <div class="header-icon">🐾</div>
+                <h1>Publicar un Nuevo Amigo</h1>
+                <p class="header-subtitle">Ayuda a encontrar un hogar para una mascota que lo necesita</p>
+            </div>
 
-            <!-- Subir fotos -->
-            <div class="form-section">
-                <h3>Información del Animal</h3>
-                <div class="upload-box">
-                    <span>📷</span>
-                    <p>Sube tus fotos aquí (hasta 5)</p>
-                    <input type="file" multiple accept="image/*">
-                </div>
+            <!-- Tabs de navegación -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="nueva">
+                    <span class="tab-icon"></span>
+                    Nueva Publicación
+                </button>
+                <button class="tab-btn" data-tab="mis-publicaciones">
+                    <span class="tab-icon"></span>
+                    Mis Publicaciones
+                    <span class="tab-badge">3</span>
+                </button>
+            </div>
 
-                <div class="grid-2">
-                    <input type="text" placeholder="Nombre">
-                    <input type="text" placeholder="Especie">
-                    <input type="text" placeholder="Raza">
-                    <input type="text" placeholder="Género">
-                </div>
+            <!-- Contenido de tabs -->
+            <div class="tab-content active" id="tab-nueva">
+                <form class="form-publicar" id="formPublicar">
 
-                <div class="options">
-                    <label><input type="radio" name="edad"> Cachorro</label>
-                    <label><input type="radio" name="edad"> Adulto</label>
-                </div>
+                    <!-- Sección: Fotos -->
+                    <div class="form-section">
+                        <div class="section-header">
+                            <span class="section-icon">📷</span>
+                            <h3>Fotos de la Mascota</h3>
+                        </div>
+                        
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-icon">📸</div>
+                            <h4>Arrastra tus fotos aquí</h4>
+                            <p>o haz clic para seleccionar</p>
+                            <span class="upload-hint">Máximo 5 fotos • JPG, PNG • Max 5MB cada una</span>
+                            <input type="file" id="fileInput" multiple accept="image/*" hidden>
+                        </div>
+                        
+                        <div class="preview-container" id="previewContainer">
+                            <!-- Las previsualizaciones aparecerán aquí -->
+                        </div>
+                    </div>
 
-                <div class="options">
-                    <label><input type="radio" name="tam"> Mediana</label>
-                    <label><input type="radio" name="tam"> Senior</label>
+                    <!-- Sección: Información básica -->
+                    <div class="form-section">
+                        <div class="section-header">
+                            <span class="section-icon"></span>
+                            <h3>Información del Animal</h3>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="nombre">Nombre <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon"></span>
+                                    <input type="text" id="nombre" placeholder="Ej: Max, Luna, Rocky..." required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="especie">Especie <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon"></span>
+                                    <select id="especie" required>
+                                        <option value="">Seleccionar especie</option>
+                                        <option value="perro"> Perro</option>
+                                        <option value="gato"> Gato</option>
+                                        <option value="ave"> Ave</option>
+                                        <option value="conejo"> Conejo</option>
+                                        <option value="otro"> Otro</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="raza">Raza</label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon"></span>
+                                    <input type="text" id="raza" placeholder="Ej: Labrador, Mestizo...">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="genero">Género <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon"></span>
+                                    <select id="genero" required>
+                                        <option value="">Seleccionar género</option>
+                                        <option value="macho"> Macho</option>
+                                        <option value="hembra"> Hembra</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Edad -->
+                        <div class="form-group">
+                            <label>Edad <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <label class="radio-card">
+                                    <input type="radio" name="edad" value="cachorro" required>
+                                    <span class="radio-content">
+                                        <span class="radio-icon">🍼</span>
+                                        <span class="radio-label">Cachorro</span>
+                                        <span class="radio-desc">0 - 1 año</span>
+                                    </span>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="edad" value="joven">
+                                    <span class="radio-content">
+                                        <span class="radio-icon"></span>
+                                        <span class="radio-label">Joven</span>
+                                        <span class="radio-desc">1 - 3 años</span>
+                                    </span>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="edad" value="adulto">
+                                    <span class="radio-content">
+                                        <span class="radio-icon"></span>
+                                        <span class="radio-label">Adulto</span>
+                                        <span class="radio-desc">3 - 7 años</span>
+                                    </span>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="edad" value="senior">
+                                    <span class="radio-content">
+                                        <span class="radio-icon"></span>
+                                        <span class="radio-label">Senior</span>
+                                        <span class="radio-desc">+7 años</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Tamaño -->
+                        <div class="form-group">
+                            <label>Tamaño <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <label class="radio-card">
+                                    <input type="radio" name="tamanio" value="pequeno" required>
+                                    <span class="radio-content">
+                                        <span class="radio-icon"></span>
+                                        <span class="radio-label">Pequeño</span>
+                                        <span class="radio-desc">Hasta 10kg</span>
+                                    </span>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="tamanio" value="mediano">
+                                    <span class="radio-content">
+                                        <span class="radio-icon"></span>
+                                        <span class="radio-label">Mediano</span>
+                                        <span class="radio-desc">10 - 25kg</span>
+                                    </span>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="tamanio" value="grande">
+                                    <span class="radio-content">
+                                        <span class="radio-icon"></span>
+                                        <span class="radio-label">Grande</span>
+                                        <span class="radio-desc">+25kg</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección: Personalidad -->
+                    <div class="form-section">
+                        <div class="section-header">
+                            <span class="section-icon"></span>
+                            <h3>Detalles y Personalidad</h3>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descripcion">Descripción <span class="required">*</span></label>
+                            <div class="input-wrapper textarea-wrapper">
+                                <textarea id="descripcion" rows="4" placeholder="Cuéntanos sobre su personalidad, historia, lo que le gusta y necesidades especiales..." required></textarea>
+                            </div>
+                            <span class="char-counter"><span id="charCount">0</span>/500</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Características</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="caracteristicas" value="vacunado">
+                                    <span class="checkbox-content">
+                                        <span class="checkbox-icon"></span>
+                                        <span class="checkbox-label">Vacunado</span>
+                                    </span>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="caracteristicas" value="desparasitado">
+                                    <span class="checkbox-content">
+                                        <span class="checkbox-icon"></span>
+                                        <span class="checkbox-label">Desparasitado</span>
+                                    </span>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="caracteristicas" value="esterilizado">
+                                    <span class="checkbox-content">
+                                        <span class="checkbox-icon"></span>
+                                        <span class="checkbox-label">Esterilizado</span>
+                                    </span>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="caracteristicas" value="microchip">
+                                    <span class="checkbox-content">
+                                        <span class="checkbox-icon"></span>
+                                        <span class="checkbox-label">Con Microchip</span>
+                                    </span>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="caracteristicas" value="ninos">
+                                    <span class="checkbox-content">
+                                        <span class="checkbox-icon"></span>
+                                        <span class="checkbox-label">Bueno con niños</span>
+                                    </span>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="caracteristicas" value="mascotas">
+                                    <span class="checkbox-content">
+                                        <span class="checkbox-icon">🐾</span>
+                                        <span class="checkbox-label">Bueno con mascotas</span>
+                                    </span>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="caracteristicas" value="especiales">
+                                    <span class="checkbox-content">
+                                        <span class="checkbox-icon"></span>
+                                        <span class="checkbox-label">Necesidades especiales</span>
+                                    </span>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="caracteristicas" value="entrenado">
+                                    <span class="checkbox-content">
+                                        <span class="checkbox-icon"></span>
+                                        <span class="checkbox-label">Entrenado</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección: Ubicación -->
+                    <div class="form-section">
+                        <div class="section-header">
+                            <span class="section-icon"></span>
+                            <h3>Ubicación</h3>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="ciudad">Ciudad <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon"></span>
+                                    <input type="text" id="ciudad" placeholder="Ej: Ciudad de México" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="colonia">Colonia / Zona</label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon"></span>
+                                    <input type="text" id="colonia" placeholder="Ej: Colonia Centro">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección: Requisitos -->
+                    <div class="form-section">
+                        <div class="section-header">
+                            <span class="section-icon">📋</span>
+                            <h3>Requisitos de Adopción</h3>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="requisitos">¿Qué requisitos debe cumplir el adoptante?</label>
+                            <div class="input-wrapper textarea-wrapper">
+                                <textarea id="requisitos" rows="3" placeholder="Ej: Casa con patio, tiempo para paseos, experiencia con mascotas..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botones de acción -->
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancelar" id="btnCancelar">
+                            <span></span> Cancelar
+                        </button>
+                        <button type="button" class="btn-borrador">
+                            <span></span> Guardar Borrador
+                        </button>
+                        <button type="submit" class="btn-publicar">
+                            <span></span> Publicar Mascota
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- Tab: Mis Publicaciones -->
+            <div class="tab-content" id="tab-mis-publicaciones">
+                <div class="mis-publicaciones-container">
+                    
+                    <div class="publicaciones-header">
+                        <h3>Tus mascotas publicadas</h3>
+                        <div class="publicaciones-filtro">
+                            <select>
+                                <option>Todas</option>
+                                <option>Activas</option>
+                                <option>En revisión</option>
+                                <option>Adoptadas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Lista de publicaciones -->
+                    <div class="publicaciones-lista">
+                        
+                        <!-- Publicación 1 -->
+                        <div class="publicacion-card">
+                            <div class="publicacion-img">
+                                <img src="img/animal1.png" alt="Max">
+                                <span class="publicacion-estado activa">Activa</span>
+                            </div>
+                            <div class="publicacion-info">
+                                <h4>Max</h4>
+                                <p class="publicacion-meta"> Perro •  Macho • 2 años</p>
+                                <p class="publicacion-ubicacion"> Ciudad de México</p>
+                                <p class="publicacion-fecha">Publicado: 15 Dic 2024</p>
+                                <div class="publicacion-stats">
+                                    <span>👁️ 45 vistas</span>
+                                    <span> 12 interesados</span>
+                                </div>
+                            </div>
+                            <div class="publicacion-acciones">
+                                <button class="btn-icon editar" title="Editar">✏️</button>
+                                <button class="btn-icon eliminar" title="Eliminar">🗑️</button>
+                            </div>
+                        </div>
+
+                        <!-- Publicación 2 -->
+                        <div class="publicacion-card">
+                            <div class="publicacion-img">
+                                <img src="img/animal2.png" alt="Luna">
+                                <span class="publicacion-estado revision">En revisión</span>
+                            </div>
+                            <div class="publicacion-info">
+                                <h4>Luna</h4>
+                                <p class="publicacion-meta"> Gato •  Hembra • 1 año</p>
+                                <p class="publicacion-ubicacion"> Guadalajara</p>
+                                <p class="publicacion-fecha">Publicado: 18 Dic 2024</p>
+                                <div class="publicacion-stats">
+                                    <span> 23 vistas</span>
+                                    <span> 5 interesados</span>
+                                </div>
+                            </div>
+                            <div class="publicacion-acciones">
+                                <button class="btn-icon editar" title="Editar">✏️</button>
+                                <button class="btn-icon eliminar" title="Eliminar">🗑️</button>
+                            </div>
+                        </div>
+
+                        <!-- Publicación 3 -->
+                        <div class="publicacion-card">
+                            <div class="publicacion-img">
+                                <img src="img/animal3.png" alt="Rocky">
+                                <span class="publicacion-estado adoptada">Adoptado</span>
+                            </div>
+                            <div class="publicacion-info">
+                                <h4>Rocky</h4>
+                                <p class="publicacion-meta">🐕 Perro • ♂️ Macho • 4 años</p>
+                                <p class="publicacion-ubicacion">📍 Monterrey</p>
+                                <p class="publicacion-fecha">Adoptado: 10 Dic 2024</p>
+                                <div class="publicacion-stats">
+                                    <span> 128 vistas</span>
+                                    <span>🎉 ¡Encontró hogar!</span>
+                                </div>
+                            </div>
+                            <div class="publicacion-acciones">
+                                <button class="btn-icon ver" title="Ver detalles"></button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Sin publicaciones (estado vacío) -->
+                    <div class="empty-state" style="display: none;">
+                        <div class="empty-icon">📭</div>
+                        <h3>No tienes publicaciones aún</h3>
+                        <p>Comienza publicando una mascota para ayudarla a encontrar un hogar</p>
+                        <button class="btn-publicar" onclick="cambiarTab('nueva')">
+                            <span>➕</span> Crear primera publicación
+                        </button>
+                    </div>
+
                 </div>
             </div>
 
-            <!-- Descripción -->
-            <div class="form-section">
-                <h3>Detalles y Personalidad</h3>
-                <textarea placeholder="Escribe aquí sobre su personalidad, historia y necesidades..."></textarea>
-
-                <div class="checkbox-group">
-                    <label><input type="checkbox"> Sano</label>
-                    <label><input type="checkbox" checked> Vacunado</label>
-                    <label><input type="checkbox"> Desparasitado</label>
-                    <label><input type="checkbox"> Esterilizado/Castrado</label>
-                    <label><input type="checkbox"> Necesidades especiales</label>
-                </div>
-            </div>
-
-            <!-- Estado de salud -->
-            <div class="form-section">
-                <h3>Estado de Salud</h3>
-                <input type="text" placeholder="Ubicación">
-            </div>
-
-            <!-- Requisitos -->
-            <div class="form-section">
-                <h3>Requisitos de Adopción</h3>
-                <textarea placeholder="Escribe aquí los requisitos específicos para adoptar..."></textarea>
-            </div>
-
-            <div class="button-row">
-                <button type="submit" class="btn-publicar">Publicar Animal</button>
-                <button type="button" class="btn-cancelar">Cancelar</button>
-            </div>
-
-        </form>
+        </div>
     </div>
 
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Adopción de Mascotas. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/publicar.js"></script>
 </body>
 </html>
