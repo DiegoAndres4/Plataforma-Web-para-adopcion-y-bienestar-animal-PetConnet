@@ -962,11 +962,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-.contact-form .input-wrapper {
-    /* This class is already defined in your login styles, no need to repeat */
-    /* It provides the nice background, border, and focus effect. */
-}
-
 .contact-form .input-wrapper textarea {
     flex: 1;
     border: none;
