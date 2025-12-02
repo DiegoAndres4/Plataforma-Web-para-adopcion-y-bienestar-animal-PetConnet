@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetConnect - Registro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/registro.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="img/logo.png" alt="PetConnect">
+        </a>
+        <div class="nav-links">
+            <a href="adopcion.html">Adopción</a>
+            <a href="denuncias.html">Denuncias</a>
+            <a href="Acercade.html">Acerca de</a>
+            <a href="Contactenos.html">Contáctenos</a>
+            <a href="login.html" class="login-btn">Log In</a>
+        </div>
+    </nav>
+
+    <div class="register-container">
+        <div class="register-box">
+            <div class="illustration-placeholder">
+                <img src="img/registro-mascotas.png" alt="Mascotas felices - Registro">
+            </div>
+
+            <h1>Crear Cuenta</h1>
+            <p class="subtitle">Completa el formulario para crear tu cuenta en PetConnect.</p>
+
+            <form id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <span class="input-icon">👤</span>
+                            <input type="text" id="firstName" placeholder="Nombre" required>
+                        </div>
+                        <div class="error-message" id="firstNameError">Por favor ingresa tu nombre.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <span class="input-icon">👤</span>
+                            <input type="text" id="lastName" placeholder="Apellido" required>
+                        </div>
+                        <div class="error-message" id="lastNameError">Por favor ingresa tu apellido.</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <span class="input-icon">✉️</span>
+                        <input type="email" id="email" placeholder="Correo Electrónico" required>
+                    </div>
+                    <div class="error-message" id="emailError">Por favor ingresa un correo electrónico válido.</div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <span class="input-icon">📱</span>
+                        <input type="tel" id="phone" placeholder="Teléfono (opcional)">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="password" placeholder="Contraseña" required>
+                            <span class="password-toggle" onclick="togglePassword('password')">👁️</span>
+                        </div>
+                        <div class="error-message" id="passwordError">La contraseña debe tener al menos 6 caracteres.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="confirmPassword" placeholder="Confirmar Contraseña" required>
+                            <span class="password-toggle" onclick="togglePassword('confirmPassword')">👁️</span>
+                        </div>
+                        <div class="error-message" id="confirmPasswordError">Las contraseñas no coinciden.</div>
+                    </div>
+                </div>
+
+                <div class="terms-conditions">
+                    <label class="remember-me">
+                        <input type="checkbox" id="terms" required>
+                        <span>Acepto los <a href="#" id="termsLink">Términos y Condiciones</a> y la <a href="#" id="privacyLink">Política de Privacidad</a> de PetConnect.</span>
+                    </label>
+                </div>
+                <div class="error-message" id="termsError">Debes aceptar los términos y condiciones.</div>
+
+                <button type="submit" class="submit-btn">Crear Cuenta</button>
+            </form>
+
+            <p class="register-link">
+                ¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí.</a>
+            </p>
+
+            <div class="security-note">
+                <span class="security-icon">🔒</span>
+                <span>Protección de datos garantizada. Tus datos están seguros con nosotros.</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 PetConnect. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/registro.js"></script>
+</body>
+</html>
