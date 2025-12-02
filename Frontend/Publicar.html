@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <!-- Navbar (incluir tu navbar aquí) -->
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">
             <img src="img/logo.png" alt="Logo">
@@ -32,21 +32,17 @@
                 <p class="header-subtitle">Ayuda a encontrar un hogar para una mascota que lo necesita</p>
             </div>
 
-            <!-- Tabs de navegación -->
-            <div class="tabs">
-                <button class="tab-btn active" data-tab="nueva">
-                    <span class="tab-icon"></span>
-                    Nueva Publicación
-                </button>
-                <button class="tab-btn" data-tab="mis-publicaciones">
-                    <span class="tab-icon"></span>
-                    Mis Publicaciones
-                    <span class="tab-badge">3</span>
-                </button>
+            <!-- Enlace a Mis Publicaciones -->
+            <div class="link-mis-publicaciones">
+                <a href="mispublic.html" class="btn-ver-publicaciones">
+                    <span class="btn-icon">📋</span>
+                    <span class="btn-text">Ver Mis Publicaciones</span>
+                    <span class="btn-badge">3</span>
+                </a>
             </div>
 
-            <!-- Contenido de tabs -->
-            <div class="tab-content active" id="tab-nueva">
+            <!-- Formulario -->
+            <div class="form-wrapper">
                 <form class="form-publicar" id="formPublicar">
 
                     <!-- Sección: Fotos -->
@@ -72,7 +68,7 @@
                     <!-- Sección: Información básica -->
                     <div class="form-section">
                         <div class="section-header">
-                            <span class="section-icon"></span>
+                            <span class="section-icon">🐕</span>
                             <h3>Información del Animal</h3>
                         </div>
 
@@ -80,7 +76,7 @@
                             <div class="form-group">
                                 <label for="nombre">Nombre <span class="required">*</span></label>
                                 <div class="input-wrapper">
-                                    <span class="input-icon"></span>
+                                    <span class="input-icon">🏷️</span>
                                     <input type="text" id="nombre" placeholder="Ej: Max, Luna, Rocky..." required>
                                 </div>
                             </div>
@@ -88,14 +84,14 @@
                             <div class="form-group">
                                 <label for="especie">Especie <span class="required">*</span></label>
                                 <div class="input-wrapper">
-                                    <span class="input-icon"></span>
+                                    <span class="input-icon">🐾</span>
                                     <select id="especie" required>
                                         <option value="">Seleccionar especie</option>
-                                        <option value="perro"> Perro</option>
-                                        <option value="gato"> Gato</option>
-                                        <option value="ave"> Ave</option>
-                                        <option value="conejo"> Conejo</option>
-                                        <option value="otro"> Otro</option>
+                                        <option value="perro">🐕 Perro</option>
+                                        <option value="gato">🐱 Gato</option>
+                                        <option value="ave">🐦 Ave</option>
+                                        <option value="conejo">🐰 Conejo</option>
+                                        <option value="otro">🐹 Otro</option>
                                     </select>
                                 </div>
                             </div>
@@ -103,7 +99,7 @@
                             <div class="form-group">
                                 <label for="raza">Raza</label>
                                 <div class="input-wrapper">
-                                    <span class="input-icon"></span>
+                                    <span class="input-icon">🔍</span>
                                     <input type="text" id="raza" placeholder="Ej: Labrador, Mestizo...">
                                 </div>
                             </div>
@@ -111,11 +107,11 @@
                             <div class="form-group">
                                 <label for="genero">Género <span class="required">*</span></label>
                                 <div class="input-wrapper">
-                                    <span class="input-icon"></span>
+                                    <span class="input-icon">⚧️</span>
                                     <select id="genero" required>
                                         <option value="">Seleccionar género</option>
-                                        <option value="macho"> Macho</option>
-                                        <option value="hembra"> Hembra</option>
+                                        <option value="macho">♂️ Macho</option>
+                                        <option value="hembra">♀️ Hembra</option>
                                     </select>
                                 </div>
                             </div>
@@ -136,7 +132,7 @@
                                 <label class="radio-card">
                                     <input type="radio" name="edad" value="joven">
                                     <span class="radio-content">
-                                        <span class="radio-icon"></span>
+                                        <span class="radio-icon">🎾</span>
                                         <span class="radio-label">Joven</span>
                                         <span class="radio-desc">1 - 3 años</span>
                                     </span>
@@ -144,7 +140,7 @@
                                 <label class="radio-card">
                                     <input type="radio" name="edad" value="adulto">
                                     <span class="radio-content">
-                                        <span class="radio-icon"></span>
+                                        <span class="radio-icon">🐕</span>
                                         <span class="radio-label">Adulto</span>
                                         <span class="radio-desc">3 - 7 años</span>
                                     </span>
@@ -152,7 +148,7 @@
                                 <label class="radio-card">
                                     <input type="radio" name="edad" value="senior">
                                     <span class="radio-content">
-                                        <span class="radio-icon"></span>
+                                        <span class="radio-icon">👴</span>
                                         <span class="radio-label">Senior</span>
                                         <span class="radio-desc">+7 años</span>
                                     </span>
@@ -167,7 +163,7 @@
                                 <label class="radio-card">
                                     <input type="radio" name="tamanio" value="pequeno" required>
                                     <span class="radio-content">
-                                        <span class="radio-icon"></span>
+                                        <span class="radio-icon">🐁</span>
                                         <span class="radio-label">Pequeño</span>
                                         <span class="radio-desc">Hasta 10kg</span>
                                     </span>
@@ -175,7 +171,7 @@
                                 <label class="radio-card">
                                     <input type="radio" name="tamanio" value="mediano">
                                     <span class="radio-content">
-                                        <span class="radio-icon"></span>
+                                        <span class="radio-icon">🐕</span>
                                         <span class="radio-label">Mediano</span>
                                         <span class="radio-desc">10 - 25kg</span>
                                     </span>
@@ -183,7 +179,7 @@
                                 <label class="radio-card">
                                     <input type="radio" name="tamanio" value="grande">
                                     <span class="radio-content">
-                                        <span class="radio-icon"></span>
+                                        <span class="radio-icon">🦮</span>
                                         <span class="radio-label">Grande</span>
                                         <span class="radio-desc">+25kg</span>
                                     </span>
@@ -195,7 +191,7 @@
                     <!-- Sección: Personalidad -->
                     <div class="form-section">
                         <div class="section-header">
-                            <span class="section-icon"></span>
+                            <span class="section-icon">💝</span>
                             <h3>Detalles y Personalidad</h3>
                         </div>
 
@@ -213,35 +209,35 @@
                                 <label class="checkbox-card">
                                     <input type="checkbox" name="caracteristicas" value="vacunado">
                                     <span class="checkbox-content">
-                                        <span class="checkbox-icon"></span>
+                                        <span class="checkbox-icon">💉</span>
                                         <span class="checkbox-label">Vacunado</span>
                                     </span>
                                 </label>
                                 <label class="checkbox-card">
                                     <input type="checkbox" name="caracteristicas" value="desparasitado">
                                     <span class="checkbox-content">
-                                        <span class="checkbox-icon"></span>
+                                        <span class="checkbox-icon">🩺</span>
                                         <span class="checkbox-label">Desparasitado</span>
                                     </span>
                                 </label>
                                 <label class="checkbox-card">
                                     <input type="checkbox" name="caracteristicas" value="esterilizado">
                                     <span class="checkbox-content">
-                                        <span class="checkbox-icon"></span>
+                                        <span class="checkbox-icon">✂️</span>
                                         <span class="checkbox-label">Esterilizado</span>
                                     </span>
                                 </label>
                                 <label class="checkbox-card">
                                     <input type="checkbox" name="caracteristicas" value="microchip">
                                     <span class="checkbox-content">
-                                        <span class="checkbox-icon"></span>
+                                        <span class="checkbox-icon">📟</span>
                                         <span class="checkbox-label">Con Microchip</span>
                                     </span>
                                 </label>
                                 <label class="checkbox-card">
                                     <input type="checkbox" name="caracteristicas" value="ninos">
                                     <span class="checkbox-content">
-                                        <span class="checkbox-icon"></span>
+                                        <span class="checkbox-icon">👶</span>
                                         <span class="checkbox-label">Bueno con niños</span>
                                     </span>
                                 </label>
@@ -255,14 +251,14 @@
                                 <label class="checkbox-card">
                                     <input type="checkbox" name="caracteristicas" value="especiales">
                                     <span class="checkbox-content">
-                                        <span class="checkbox-icon"></span>
+                                        <span class="checkbox-icon">⚕️</span>
                                         <span class="checkbox-label">Necesidades especiales</span>
                                     </span>
                                 </label>
                                 <label class="checkbox-card">
                                     <input type="checkbox" name="caracteristicas" value="entrenado">
                                     <span class="checkbox-content">
-                                        <span class="checkbox-icon"></span>
+                                        <span class="checkbox-icon">🎓</span>
                                         <span class="checkbox-label">Entrenado</span>
                                     </span>
                                 </label>
@@ -273,7 +269,7 @@
                     <!-- Sección: Ubicación -->
                     <div class="form-section">
                         <div class="section-header">
-                            <span class="section-icon"></span>
+                            <span class="section-icon">📍</span>
                             <h3>Ubicación</h3>
                         </div>
 
@@ -281,14 +277,14 @@
                             <div class="form-group">
                                 <label for="ciudad">Ciudad <span class="required">*</span></label>
                                 <div class="input-wrapper">
-                                    <span class="input-icon"></span>
+                                    <span class="input-icon">🏙️</span>
                                     <input type="text" id="ciudad" placeholder="Ej: Ciudad de México" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="colonia">Colonia / Zona</label>
                                 <div class="input-wrapper">
-                                    <span class="input-icon"></span>
+                                    <span class="input-icon">📌</span>
                                     <input type="text" id="colonia" placeholder="Ej: Colonia Centro">
                                 </div>
                             </div>
@@ -313,116 +309,17 @@
                     <!-- Botones de acción -->
                     <div class="form-actions">
                         <button type="button" class="btn-cancelar" id="btnCancelar">
-                            <span></span> Cancelar
+                            <span>✖️</span> Cancelar
                         </button>
                         <button type="button" class="btn-borrador">
-                            <span></span> Guardar Borrador
+                            <span>💾</span> Guardar Borrador
                         </button>
                         <button type="submit" class="btn-publicar">
-                            <span></span> Publicar Mascota
+                            <span>🐾</span> Publicar Mascota
                         </button>
                     </div>
 
                 </form>
-            </div>
-
-            <!-- Tab: Mis Publicaciones -->
-            <div class="tab-content" id="tab-mis-publicaciones">
-                <div class="mis-publicaciones-container">
-                    
-                    <div class="publicaciones-header">
-                        <h3>Tus mascotas publicadas</h3>
-                        <div class="publicaciones-filtro">
-                            <select>
-                                <option>Todas</option>
-                                <option>Activas</option>
-                                <option>En revisión</option>
-                                <option>Adoptadas</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Lista de publicaciones -->
-                    <div class="publicaciones-lista">
-                        
-                        <!-- Publicación 1 -->
-                        <div class="publicacion-card">
-                            <div class="publicacion-img">
-                                <img src="img/animal1.png" alt="Max">
-                                <span class="publicacion-estado activa">Activa</span>
-                            </div>
-                            <div class="publicacion-info">
-                                <h4>Max</h4>
-                                <p class="publicacion-meta"> Perro •  Macho • 2 años</p>
-                                <p class="publicacion-ubicacion"> Ciudad de México</p>
-                                <p class="publicacion-fecha">Publicado: 15 Dic 2024</p>
-                                <div class="publicacion-stats">
-                                    <span>👁️ 45 vistas</span>
-                                    <span> 12 interesados</span>
-                                </div>
-                            </div>
-                            <div class="publicacion-acciones">
-                                <button class="btn-icon editar" title="Editar">✏️</button>
-                                <button class="btn-icon eliminar" title="Eliminar">🗑️</button>
-                            </div>
-                        </div>
-
-                        <!-- Publicación 2 -->
-                        <div class="publicacion-card">
-                            <div class="publicacion-img">
-                                <img src="img/animal2.png" alt="Luna">
-                                <span class="publicacion-estado revision">En revisión</span>
-                            </div>
-                            <div class="publicacion-info">
-                                <h4>Luna</h4>
-                                <p class="publicacion-meta"> Gato •  Hembra • 1 año</p>
-                                <p class="publicacion-ubicacion"> Guadalajara</p>
-                                <p class="publicacion-fecha">Publicado: 18 Dic 2024</p>
-                                <div class="publicacion-stats">
-                                    <span> 23 vistas</span>
-                                    <span> 5 interesados</span>
-                                </div>
-                            </div>
-                            <div class="publicacion-acciones">
-                                <button class="btn-icon editar" title="Editar">✏️</button>
-                                <button class="btn-icon eliminar" title="Eliminar">🗑️</button>
-                            </div>
-                        </div>
-
-                        <!-- Publicación 3 -->
-                        <div class="publicacion-card">
-                            <div class="publicacion-img">
-                                <img src="img/animal3.png" alt="Rocky">
-                                <span class="publicacion-estado adoptada">Adoptado</span>
-                            </div>
-                            <div class="publicacion-info">
-                                <h4>Rocky</h4>
-                                <p class="publicacion-meta">🐕 Perro • ♂️ Macho • 4 años</p>
-                                <p class="publicacion-ubicacion">📍 Monterrey</p>
-                                <p class="publicacion-fecha">Adoptado: 10 Dic 2024</p>
-                                <div class="publicacion-stats">
-                                    <span> 128 vistas</span>
-                                    <span>🎉 ¡Encontró hogar!</span>
-                                </div>
-                            </div>
-                            <div class="publicacion-acciones">
-                                <button class="btn-icon ver" title="Ver detalles"></button>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Sin publicaciones (estado vacío) -->
-                    <div class="empty-state" style="display: none;">
-                        <div class="empty-icon">📭</div>
-                        <h3>No tienes publicaciones aún</h3>
-                        <p>Comienza publicando una mascota para ayudarla a encontrar un hogar</p>
-                        <button class="btn-publicar" onclick="cambiarTab('nueva')">
-                            <span>➕</span> Crear primera publicación
-                        </button>
-                    </div>
-
-                </div>
             </div>
 
         </div>

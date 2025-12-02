@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Publicaciones - Adopción de Mascotas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mispublic.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="adopcion.html">Adopción</a>
+            <a href="denuncias.html">Denuncias</a>
+            <a href="Contactenos.html">Contacto</a>
+        </div>
+    </nav>
+
+    <div class="mispublic-page">
+        <div class="mispublic-container">
+            
+            <!-- Header -->
+            <div class="mispublic-header">
+                <div class="header-content">
+                    <div class="header-icon">📋</div>
+                    <div class="header-text">
+                        <h1>Mis Publicaciones</h1>
+                        <p class="header-subtitle">Administra las mascotas que has publicado para adopción</p>
+                    </div>
+                </div>
+                <a href="publicar.html" class="btn-nueva-publicacion">
+                    <span>➕</span> Nueva Publicación
+                </a>
+            </div>
+
+            <!-- Estadísticas rápidas -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-icon">📊</span>
+                    <div class="stat-info">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Total</span>
+                    </div>
+                </div>
+                <div class="stat-item activas">
+                    <span class="stat-icon">✅</span>
+                    <div class="stat-info">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Activas</span>
+                    </div>
+                </div>
+                <div class="stat-item revision">
+                    <span class="stat-icon">⏳</span>
+                    <div class="stat-info">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">En Revisión</span>
+                    </div>
+                </div>
+                <div class="stat-item adoptadas">
+                    <span class="stat-icon">🏠</span>
+                    <div class="stat-info">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Adoptadas</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filtros y búsqueda -->
+            <div class="filtros-bar">
+                <div class="busqueda-publicaciones">
+                    <span class="busqueda-icon">🔍</span>
+                    <input type="text" placeholder="Buscar por nombre..." id="buscarPublicacion">
+                </div>
+                <div class="filtros-opciones">
+                    <select id="filtroEstado">
+                        <option value="todas">Todas las publicaciones</option>
+                        <option value="activas">Activas</option>
+                        <option value="revision">En revisión</option>
+                        <option value="adoptadas">Adoptadas</option>
+                        <option value="pausadas">Pausadas</option>
+                    </select>
+                    <select id="filtroOrden">
+                        <option value="recientes">Más recientes</option>
+                        <option value="antiguas">Más antiguas</option>
+                        <option value="vistas">Más vistas</option>
+                        <option value="interesados">Más interesados</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Lista de publicaciones -->
+            <div class="publicaciones-lista">
+                
+                <!-- Publicación 1 - Activa -->
+                <div class="publicacion-card" data-estado="activa">
+                    <div class="publicacion-img">
+                        <img src="img/animal1.png" alt="Max">
+                        <span class="publicacion-estado activa">Activa</span>
+                        <div class="img-overlay">
+                            <button class="btn-preview" title="Vista previa">👁️</button>
+                        </div>
+                    </div>
+                    <div class="publicacion-info">
+                        <div class="info-header">
+                            <h4>Max</h4>
+                            <span class="publicacion-id">#PUB-001</span>
+                        </div>
+                        <p class="publicacion-meta">
+                            <span> Perro</span>
+                            <span> Macho</span>
+                            <span> 2 años</span>
+                        </p>
+                        <p class="publicacion-ubicacion"> Cúcuta, Villa del Rosario</p>
+                        <p class="publicacion-fecha">
+                            <span class="fecha-label">Publicado:</span> 15 Dic 2024
+                        </p>
+                        <div class="publicacion-stats">
+                            <div class="stat">
+                                <span class="stat-icon">👁️</span>
+                                <span class="stat-value">45</span>
+                                <span class="stat-text">vistas</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-icon">❤️</span>
+                                <span class="stat-value">12</span>
+                                <span class="stat-text">interesados</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-icon">💬</span>
+                                <span class="stat-value">5</span>
+                                <span class="stat-text">mensajes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="publicacion-acciones">
+                        <button class="btn-accion editar" title="Editar publicación">
+                            <span class="btn-icon">✏️</span>
+                            <span class="btn-text">Editar</span>
+                        </button>
+                        <button class="btn-accion pausar" title="Pausar publicación">
+                            <span class="btn-icon">⏸️</span>
+                            <span class="btn-text">Pausar</span>
+                        </button>
+                        <button class="btn-accion ver-interesados" title="Ver interesados">
+                            <span class="btn-icon">👥</span>
+                            <span class="btn-text">Interesados</span>
+                        </button>
+                        <button class="btn-accion eliminar" title="Eliminar publicación">
+                            <span class="btn-icon">🗑️</span>
+                            <span class="btn-text">Eliminar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Publicación 2 - En revisión -->
+                <div class="publicacion-card" data-estado="revision">
+                    <div class="publicacion-img">
+                        <img src="img/animal2.png" alt="Luna">
+                        <span class="publicacion-estado revision">En revisión</span>
+                        <div class="img-overlay">
+                            <button class="btn-preview" title="Vista previa">👁️</button>
+                        </div>
+                    </div>
+                    <div class="publicacion-info">
+                        <div class="info-header">
+                            <h4>Luna</h4>
+                            <span class="publicacion-id">#PUB-002</span>
+                        </div>
+                        <p class="publicacion-meta">
+                            <span> Gato</span>
+                            <span> Hembra</span>
+                            <span> 1 año</span>
+                        </p>
+                        <p class="publicacion-ubicacion">Bogota, Salitre</p>
+                        <p class="publicacion-fecha">
+                            <span class="fecha-label">Publicado:</span> 18 Dic 2024
+                        </p>
+                        <div class="publicacion-stats">
+                            <div class="stat">
+                                <span class="stat-icon">👁️</span>
+                                <span class="stat-value">23</span>
+                                <span class="stat-text">vistas</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-icon">❤️</span>
+                                <span class="stat-value">5</span>
+                                <span class="stat-text">interesados</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-icon">💬</span>
+                                <span class="stat-value">2</span>
+                                <span class="stat-text">mensajes</span>
+                            </div>
+                        </div>
+                        <div class="revision-notice">
+                            <span class="notice-icon">ℹ️</span>
+                            <span class="notice-text">Tu publicación está siendo revisada. Esto puede tomar hasta 24 horas.</span>
+                        </div>
+                    </div>
+                    <div class="publicacion-acciones">
+                        <button class="btn-accion editar" title="Editar publicación">
+                            <span class="btn-icon">✏️</span>
+                            <span class="btn-text">Editar</span>
+                        </button>
+                        <button class="btn-accion eliminar" title="Eliminar publicación">
+                            <span class="btn-icon">🗑️</span>
+                            <span class="btn-text">Eliminar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Publicación 3 - Adoptada -->
+                <div class="publicacion-card adoptada" data-estado="adoptada">
+                    <div class="publicacion-img">
+                        <img src="img/animal3.png" alt="Rocky">
+                        <span class="publicacion-estado adoptada"> Adoptado</span>
+                        <div class="adoptado-overlay">
+                            <span class="adoptado-icon">🏠</span>
+                            <span class="adoptado-text">¡Encontró hogar!</span>
+                        </div>
+                    </div>
+                    <div class="publicacion-info">
+                        <div class="info-header">
+                            <h4>Rocky</h4>
+                            <span class="publicacion-id">#PUB-003</span>
+                        </div>
+                        <p class="publicacion-meta">
+                            <span> Perro</span>
+                            <span> Macho</span>
+                            <span> 4 años</span>
+                        </p>
+                        <p class="publicacion-ubicacion"> Medellin, El Poblado</p>
+                        <div class="fechas-adoptado">
+                            <p class="publicacion-fecha">
+                                <span class="fecha-label">Publicado:</span> 01 Dic 2024
+                            </p>
+                            <p class="publicacion-fecha adoptado">
+                                <span class="fecha-label">Adoptado:</span> 10 Dic 2024
+                            </p>
+                        </div>
+                        <div class="publicacion-stats">
+                            <div class="stat">
+                                <span class="stat-icon">👁️</span>
+                                <span class="stat-value">128</span>
+                                <span class="stat-text">vistas</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-icon">❤️</span>
+                                <span class="stat-value">24</span>
+                                <span class="stat-text">interesados</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-icon">📅</span>
+                                <span class="stat-value">9</span>
+                                <span class="stat-text">días activo</span>
+                            </div>
+                        </div>
+                        <div class="success-badge">
+                            <span> ¡Misión cumplida! Rocky encontró un hogar amoroso</span>
+                        </div>
+                    </div>
+                    <div class="publicacion-acciones">
+                        <button class="btn-accion ver" title="Ver detalles">
+                            <span class="btn-icon">👁️</span>
+                            <span class="btn-text">Ver detalles</span>
+                        </button>
+                        <button class="btn-accion compartir" title="Compartir historia">
+                            <span class="btn-icon">📤</span>
+                            <span class="btn-text">Compartir</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Estado vacío (se muestra cuando no hay publicaciones) -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-illustration">
+                    <span class="empty-icon">📭</span>
+                </div>
+                <h3>No tienes publicaciones aún</h3>
+                <p>Comienza publicando una mascota para ayudarla a encontrar un hogar lleno de amor</p>
+                <a href="publicar.html" class="btn-primera-publicacion">
+                    <span>➕</span> Crear mi primera publicación
+                </a>
+            </div>
+
+            <!-- Paginación -->
+            <div class="paginacion">
+                <button class="pag-btn" disabled>
+                    <span>◀</span> Anterior
+                </button>
+                <div class="pag-numeros">
+                    <button class="pag-num active">1</button>
+                    <button class="pag-num">2</button>
+                    <button class="pag-num">3</button>
+                </div>
+                <button class="pag-btn">
+                    Siguiente <span>▶</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal de confirmación para eliminar -->
+    <div class="modal-overlay" id="modalEliminar" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-icon">⚠️</span>
+                <h3>¿Eliminar publicación?</h3>
+            </div>
+            <p class="modal-text">Esta acción no se puede deshacer. La publicación de <strong id="nombreMascota">Max</strong> será eliminada permanentemente.</p>
+            <div class="modal-actions">
+                <button class="btn-modal cancelar" id="btnCancelarModal">Cancelar</button>
+                <button class="btn-modal eliminar" id="btnConfirmarEliminar">Sí, eliminar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Adopción de Mascotas. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/mispublic.js"></script>
+</body>
+</html>
