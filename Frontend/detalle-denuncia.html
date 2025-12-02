@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Denuncia - PetConnect</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index-logueado.html" class="logo">
+            <img src="img/logo.png" alt="PetConnect">
+        </a>
+        <div class="nav-links">
+            <a href="adopcion.html">Explorar Adopciones</a>
+            <a href="denuncias.html">Ver Denuncias</a>
+            <a href="acerca.html">Acerca de</a>
+            <a href="Contactenos.html">Contacto</a>
+            
+            <!-- MENÚ DE USUARIO -->
+            <div class="user-menu-container">
+                <div class="user-menu-btn" onclick="toggleUserMenu()">
+                    <div class="user-avatar">
+                        RP
+                    </div>
+                    <span class="user-name">Refugio Patitas Felices</span>
+                    <span class="dropdown-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                </div>
+
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="dropdown-header">
+                        <div class="user-avatar">RP</div>
+                        <div class="dropdown-user-info">
+                            <div class="dropdown-user-name">Refugio Patitas Felices</div>
+                            <div class="dropdown-user-email">refugio@patitas.com</div>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-menu">
+                        <a href="perfil.html" class="dropdown-item">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-user"></i></span>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Mi Perfil</span>
+                            </div>
+                        </a>
+
+                        <a href="mis-publicaciones.html" class="dropdown-item">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-paw"></i></span>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Mis Publicaciones</span>
+                                <span class="dropdown-item-description">Mascotas en adopción</span>
+                            </div>
+                        </a>
+
+                        <a href="mis-adopciones.html" class="dropdown-item">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-house-heart"></i></span>                                                                                                          
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Mis Adopciones</span>
+                                <span class="dropdown-item-description">Historial de adopciones</span>
+                            </div>
+                        </a>
+
+                        <a href="mis-denuncias.html" class="dropdown-item">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-bell"></i></span>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Mis Denuncias</span>
+                                <span class="dropdown-item-description">Reportes realizados</span>
+                            </div>
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <a href="#" class="dropdown-item logout" onclick="logout()">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Cerrar Sesión</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="detalle-denuncia-container">
+        <!-- HEADER -->
+        <header class="detalle-denuncia-header">
+            <div class="detalle-denuncia-title">
+                <h1>Maltrato Animal en Calle Falsa 123</h1>
+                <p>Gracias por tu denuncia. Nuestro equipo está revisando la situación para garantizar el bienestar del animal.</p>
+            </div>
+            <div class="detalle-denuncia-meta">
+                <div class="detalle-denuncia-meta-row">
+                    <span class="detalle-denuncia-estado revision">
+                        <i class="fa-solid fa-circle-exclamation"></i> En Revisión
+                    </span>
+                </div>
+                <div class="detalle-denuncia-meta-row">
+                    <i class="fa-solid fa-hashtag"></i>
+                    <span><strong>ID:</strong> D-00123</span>
+                </div>
+                <div class="detalle-denuncia-meta-row">
+                    <i class="fa-solid fa-calendar"></i>
+                    <span><strong>Fecha de creación:</strong> 15/03/2024</span>
+                </div>
+                <div class="detalle-denuncia-meta-row">
+                    <i class="fa-solid fa-tag"></i>
+                    <span><strong>Tipo:</strong> Maltrato Animal</span>
+                </div>
+                <div class="detalle-denuncia-meta-row">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span><strong>Prioridad:</strong> Alta</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- BODY -->
+        <section class="detalle-denuncia-body">
+            <!-- Columna izquierda -->
+            <div>
+                <!-- Info principal -->
+                <div class="detalle-info-block">
+                    <h2>Ubicación del Incidente</h2>
+                    <ul class="detalle-info-list">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span><strong>Dirección:</strong> Calle Falsa 123, Ciudad Central</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-map"></i>
+                            <span><strong>Referencia:</strong> Frente a la panadería “El Trigal”</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-clock"></i>
+                            <span><strong>Fecha / Hora aproximada:</strong> 15/03/2024 - 16:30</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Descripción -->
+                <div class="detalle-info-block">
+                    <h2>Descripción de los Hechos</h2>
+                    <p>
+                        Se observa a un perro encadenado en el patio delantero, sin acceso visible a agua ni refugio adecuado.
+                        El animal parece estar extremadamente delgado y muestra signos de abandono y maltrato.
+                        Se escuchan gritos ocasionales provenientes de la vivienda.
+                    </p>
+                </div>
+
+                <!-- Evidencias -->
+                <div class="detalle-info-block">
+                    <h2>Evidencias Adjuntas</h2>
+                    <p style="font-size:0.9rem; color:#777;">Las siguientes imágenes fueron proporcionadas al momento de realizar la denuncia.</p>
+                    <div class="detalle-evidencias-grid">
+                        <img src="img/denuncia-maltrato.jpg" alt="Evidencia 1">
+                        <img src="img/denuncia-emergencia.jpg" alt="Evidencia 2">
+                        <img src="img/denuncia-abandono.jpg" alt="Evidencia 3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna derecha (sidebar) -->
+            <aside class="detalle-sidebar">
+                <h2>Historial de Estado</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-item-title">Denuncia creada</div>
+                        <div class="timeline-item-time">15/03/2024 - 16:45</div>
+                        <div class="timeline-item-desc">Tu denuncia fue registrada en el sistema.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-item-title">Asignada a equipo de revisión</div>
+                        <div class="timeline-item-time">15/03/2024 - 17:10</div>
+                        <div class="timeline-item-desc">Un equipo de protección animal está analizando la información.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-item-title">Revisión en curso</div>
+                        <div class="timeline-item-time">16/03/2024 - 09:30</div>
+                        <div class="timeline-item-desc">Se ha programado una visita al lugar reportado.</div>
+                    </div>
+                </div>
+
+                <h2>Contacto de Seguimiento</h2>
+                <ul class="detalle-info-list">
+                    <li>
+                        <i class="fa-solid fa-user-shield"></i>
+                        <span><strong>Responsable:</strong> Equipo de Bienestar Animal</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span><strong>Correo:</strong> denuncias@petconnect.com</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <span><strong>Teléfono:</strong> +1 (555) 987-6543</span>
+                    </li>
+                </ul>
+            </aside>
+        </section>
+
+        <!-- Acciones -->
+        <div class="detalle-footer-actions">
+            <a href="mis-denuncias.html" class="btn-secondary">
+                <i class="fa-solid fa-arrow-left"></i> Volver a Mis Denuncias
+            </a>
+            <button class="btn-secondary btn-danger-outline" onclick="cancelDenunciaDetalle('D-00123')">
+                <i class="fa-solid fa-ban"></i> Solicitar Cancelación
+            </button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 PetConnect. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Toggle menú usuario
+        function toggleUserMenu() {
+            const dropdown = document.getElementById('userDropdown');
+            const btn = document.querySelector('.user-menu-btn');
+            
+            dropdown.classList.toggle('active');
+            btn.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const userMenu = document.querySelector('.user-menu-container');
+            const dropdown = document.getElementById('userDropdown');
+            
+            if (!userMenu.contains(event.target) && dropdown.classList.contains('active')) {
+                dropdown.classList.remove('active');
+                document.querySelector('.user-menu-btn').classList.remove('active');
+            }
+        });
+
+        function logout() {
+            if (confirm('¿Estás seguro que deseas cerrar sesión?')) {
+                alert('Sesión cerrada exitosamente');
+                window.location.href = 'index.html';
+            }
+            return false;
+        }
+
+        // Simulación de cancelación desde la vista detalle
+        function cancelDenunciaDetalle(id) {
+            if (confirm(`¿Quieres solicitar la cancelación de la denuncia ${id}?`)) {
+                alert(`Solicitud de cancelación enviada para la denuncia ${id} (simulado).`);
+                // Aquí iría la llamada real a tu API
+            }
+        }
+
+        // Opcional: leer query string para ID y personalizar contenido
+        // Ej: detalle-denuncia.html?id=D-00123
+        (function loadDenunciaFromQuery() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            if (id) {
+                // Aquí podrías usar 'id' para cargar datos reales vía fetch/AJAX.
+                console.log('ID de denuncia desde URL:', id);
+            }
+        })();
+    </script>
+</body>
+</html>

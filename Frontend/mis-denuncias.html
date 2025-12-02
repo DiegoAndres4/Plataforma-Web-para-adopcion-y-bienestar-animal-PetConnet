@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Denuncias - PetConnect</title>
+    <!-- IMPORTANT: Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index-logueado.html" class="logo">
+            <img src="img/logo.png" alt="PetConnect">
+        </a>
+        <div class="nav-links">
+            <!-- These links could be dynamic based on user role or preference -->
+            <a href="adopcion.html">Explorar Adopciones</a>
+            <a href="denuncias.html">Ver Denuncias</a>
+            <a href="acerca.html">Acerca de</a>
+            <a href="Contactenos.html">Contacto</a>
+            
+            <!-- MENÚ DE USUARIO (Mostrar cuando está logueado) -->
+            <div class="user-menu-container">
+                <div class="user-menu-btn" onclick="toggleUserMenu()">
+                    <div class="user-avatar">
+                        RP
+                    </div>
+                    <span class="user-name">Refugio Patitas Felices</span>
+                    <span class="dropdown-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                </div>
+
+                <!-- Dropdown Menu -->
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="dropdown-header">
+                        <div class="user-avatar">RP</div>
+                        <div class="dropdown-user-info">
+                            <div class="dropdown-user-name">Refugio Patitas Felices</div>
+                            <div class="dropdown-user-email">refugio@patitas.com</div>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-menu">
+                        <a href="perfil.html" class="dropdown-item">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-user"></i></span>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Mi Perfil</span>
+                            </div>
+                        </a>
+
+                        <a href="mis-publicaciones.html" class="dropdown-item">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-paw"></i></span>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Mis Publicaciones</span>
+                                <span class="dropdown-item-description">Mascotas en adopción</span>
+                            </div>
+                        </a>
+
+                        <a href="mis-adopciones.html" class="dropdown-item">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-house-heart"></i></span>                                                                                                          
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Mis Adopciones</span>
+                                <span class="dropdown-item-description">Historial de adopciones</span>
+                            </div>
+                        </a>
+
+                        <a href="mis-denuncias.html" class="dropdown-item">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-bell"></i></span>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Mis Denuncias</span>
+                                <span class="dropdown-item-description">Reportes realizados</span>
+                            </div>
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <a href="#" class="dropdown-item logout" onclick="logout()">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Cerrar Sesión</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="mis-denuncias-container">
+        <div class="mis-denuncias-header">
+            <h1>Mis Denuncias Enviadas</h1>
+            <p>Consulta el estado y los detalles de las denuncias que has realizado. Estamos trabajando para resolverlas.</p>
+            <!-- You could also add a button to make a new report here -->
+            <a href="denuncias2.0.html" class="btn"><i class="fa-solid fa-flag"></i> Realizar Nueva Denuncia</a>
+        </div>
+
+        <!-- Filter Tabs (reusing .denuncias-tabs styles) -->
+        <div class="denuncias-tabs">
+            <button class="filtro active" onclick="filterDenuncias('todas')">Todas</button>
+            <button class="filtro" onclick="filterDenuncias('revision')">En Revisión</button>
+            <button class="filtro" onclick="filterDenuncias('enproceso')">En Proceso</button>
+            <button class="filtro" onclick="filterDenuncias('resuelto')">Resueltas</button>
+            <button class="filtro" onclick="filterDenuncias('grave')">Urgentes</button>
+        </div>
+
+        <div class="mis-denuncias-content-grid">
+            <!-- Ejemplo de Tarjeta de Denuncia (En Revisión) -->
+            <div class="denuncia-card" data-status="revision">
+                <img src="img/maltrato.png" alt="Maltrato Animal">
+                <div class="estado revision">En Revisión</div>
+                <div class="denuncia-details">
+                    <h4>Maltrato Animal en Calle Falsa 123</h4>
+                    <div class="detail-item"><i class="fa-solid fa-hashtag"></i> ID: <strong>D-00123</strong></div>
+                    <div class="detail-item"><i class="fa-solid fa-calendar"></i> Fecha: <strong>15/03/2024</strong></div>
+                    <div class="detail-item"><i class="fa-solid fa-location-dot"></i> Ubicación: <strong>Calle Falsa 123, Ciudad</strong></div>
+                    <div class="detail-item"><i class="fa-solid fa-circle-info"></i> Última actualización: <strong>Recibido y asignado</strong></div>
+                </div>
+                <div class="card-footer-actions">
+                    <a href="detalle-denuncia.html?id=D-00123" class="btn-card-action view-details"><i class="fa-solid fa-eye"></i> Ver Detalles</a>
+                    <button class="btn-card-action cancel-denuncia" onclick="cancelDenuncia('D-00123')"><i class="fa-solid fa-ban"></i> Cancelar</button>
+                </div>
+            </div>
+
+            <!-- Ejemplo de Tarjeta de Denuncia (En Proceso) -->
+            <div class="denuncia-card" data-status="enproceso">
+                <img src="img/perdido.png" alt="Animal Abandonado">
+                <div class="estado enproceso">En Proceso</div>
+                <div class="denuncia-details">
+                    <h4>Perro abandonado en Parque Central</h4>
+                    <div class="detail-item"><i class="fa-solid fa-hashtag"></i> ID: <strong>D-00124</strong></div>
+                    <div class="detail-item"><i class="fa-solid fa-calendar"></i> Fecha: <strong>10/03/2024</strong></div>
+                    <div class="detail-item"><i class="fa-solid fa-location-dot"></i> Ubicación: <strong>Parque Central, Sector A</strong></div>
+                    <div class="detail-item"><i class="fa-solid fa-circle-info"></i> Última actualización: <strong>Equipo de rescate en camino</strong></div>
+                </div>
+                <div class="card-footer-actions">
+                    <a href="detalle-denuncia.html?id=D-00124" class="btn-card-action view-details"><i class="fa-solid fa-eye"></i> Ver Detalles</a>
+                    <button class="btn-card-action cancel-denuncia" onclick="cancelDenuncia('D-00124')"><i class="fa-solid fa-ban"></i> Cancelar</button>
+                </div>
+            </div>
+
+            <!-- Ejemplo de Tarjeta de Denuncia (Resuelta) -->
+            <div class="denuncia-card" data-status="resuelto">
+                <img src="img/perdido.png" alt="Mascota Perdida">
+                <div class="estado resuelto">Resuelta</div>
+                <div class="denuncia-details">
+                    <h4>Mascota perdida: Gato 'Salem'</h4>
+                    <div class="detail-item"><i class="fa-solid fa-hashtag"></i> ID: <strong>D-00120</strong></div>
+                    <div class="detail-item"><i class="fa-solid fa-calendar"></i> Fecha: <strong>01/03/2024</strong></div>
+                    <div class="detail-item"><i class="fa-solid fa-location-dot"></i> Ubicación: <strong>Barrio Los Pinos</strong></div>
+                    <div class="detail-item"><i class="fa-solid fa-circle-info"></i> Última actualización: <strong>Mascota encontrada y reunida</strong></div>
+                </div>
+                <div class="card-footer-actions">
+                    <a href="detalle-denuncia.html?id=D-00120" class="btn-card-action view-details"><i class="fa-solid fa-eye"></i> Ver Detalles</a>
+                </div>
+            </div>
+
+            <!-- Ejemplo de Tarjeta de Denuncia (Grave/Urgente) -->
+            <div class="denuncia-card" data-status="grave">
+                <img src="img/maltrato.png" alt="Emergencia Animal">
+                <div class="estado grave">Grave</div>
+                <div class="denuncia-details">
+                    <h4>Animal herido en carretera</h4>
+                    <div class="detail-item"><i class="fa-solid fa-hashtag"></i> ID: <strong>D-00125</strong></div>
+                    <div class="detail-item"><i class="fa-solid fa-calendar"></i> Fecha: <strong>16/03/2024</strong></div>
+                    <div class="detail-item"><i class="fa-solid fa-location-dot"></i> Ubicación: <strong>Carretera Principal KM 5</strong></div>
+                    <div class="detail-item"><i class="fa-solid fa-circle-info"></i> Última actualización: <strong>Unidad de emergencia movilizada</strong></div>
+                </div>
+                <div class="card-footer-actions">
+                    <a href="detalle-denuncia.html?id=D-00125" class="btn-card-action view-details"><i class="fa-solid fa-eye"></i> Ver Detalles</a>
+                </div>
+            </div>
+            
+            <!-- Puedes añadir más tarjetas de ejemplo aquí -->
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 PetConnect. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Toggle del menú de usuario
+        function toggleUserMenu() {
+            const dropdown = document.getElementById('userDropdown');
+            const btn = document.querySelector('.user-menu-btn');
+            
+            dropdown.classList.toggle('active');
+            btn.classList.toggle('active');
+        }
+
+        // Cerrar el menú si se hace clic fuera
+        document.addEventListener('click', function(event) {
+            const userMenu = document.querySelector('.user-menu-container');
+            const dropdown = document.getElementById('userDropdown');
+            
+            if (!userMenu.contains(event.target) && dropdown.classList.contains('active')) {
+                dropdown.classList.remove('active');
+                document.querySelector('.user-menu-btn').classList.remove('active');
+            }
+        });
+
+        // Función de logout
+        function logout() {
+            if (confirm('¿Estás seguro que deseas cerrar sesión?')) {
+                alert('Sesión cerrada exitosamente');
+                window.location.href = 'index.html'; // Redirigir a la página principal no logueada
+            }
+            return false;
+        }
+
+        // Simulación de función para cancelar una denuncia
+        function cancelDenuncia(id) {
+            if (confirm(`¿Estás seguro que deseas cancelar la denuncia ID ${id}?`)) {
+                alert(`Denuncia ID ${id} cancelada (simulado).`);
+                // En un proyecto real, aquí harías una llamada a tu API para cancelar la denuncia
+                // y luego actualizarías la interfaz de usuario.
+            }
+        }
+
+        // Función para filtrar denuncias
+        function filterDenuncias(status) {
+            const buttons = document.querySelectorAll('.denuncias-tabs .filtro');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.denuncias-tabs .filtro[onclick="filterDenuncias('${status}')"]`).classList.add('active');
+
+            const denunciaCards = document.querySelectorAll('.mis-denuncias-content-grid .denuncia-card');
+            denunciaCards.forEach(card => {
+                if (status === 'todas' || card.dataset.status === status) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
