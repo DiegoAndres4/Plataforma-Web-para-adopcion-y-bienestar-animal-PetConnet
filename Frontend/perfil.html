@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - PetConnect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/perfil.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index-logueado.html" class="logo">
+            <img src="img/logo.png" alt="PetConnect">
+        </a>
+        <div class="nav-links">
+            <!-- MENÚ DE USUARIO (Mostrar cuando está logueado) -->
+            <div class="user-menu-container">
+                <div class="user-menu-btn" onclick="toggleUserMenu()">
+                    <div class="user-avatar">
+                        RP
+                    </div>
+                    <span class="user-name">Refugio Patitas Felices</span>
+                    <span class="dropdown-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                </div>
+
+                <!-- Dropdown Menu -->
+                <div class="user-dropdown" id="userDropdown">
+                    <!-- Header con info del usuario -->
+                    <div class="dropdown-header">
+                        <div class="user-avatar">RP</div>
+                        <div class="dropdown-user-info">
+                            <div class="dropdown-user-name">Refugio Patitas Felices</div>
+                            <div class="dropdown-user-email">refugio@patitas.com</div>
+                        </div>
+                    </div>
+
+                    <!-- Menú de opciones -->
+                    <div class="dropdown-menu">
+                        <a href="perfil.html" class="dropdown-item active">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-user"></i></span>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Mi Perfil</span>
+                            </div>
+                        </a>
+
+                        <a href="mis-publicaciones.html" class="dropdown-item">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-paw"></i></span>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Mis Publicaciones</span>
+                                <span class="dropdown-item-description">Mascotas en adopción</span>
+                            </div>
+                        </a>
+
+                        <a href="mis-adopciones.html" class="dropdown-item">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-heart"></i></span>                                                                                                          
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Mis Adopciones</span>
+                                <span class="dropdown-item-description">Historial de adopciones</span>
+                            </div>
+                        </a>
+
+                        <a href="mis-denuncias.html" class="dropdown-item">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-exclamation-circle"></i></span>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Mis Denuncias</span>
+                                <span class="dropdown-item-description">Reportes realizados</span>
+                            </div>
+                        </a>
+                        <a href="Contactenos.html" class="dropdown-item">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-envelope"></i></span>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Contacto</span>
+                            </div>
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <a href="#" class="dropdown-item logout" onclick="logout()">
+                            <span class="dropdown-item-icon"><i class="fa-solid fa-sign-out-alt"></i></span>
+                            <div class="dropdown-item-text">
+                                <span class="dropdown-item-label">Cerrar Sesión</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="profile-container">
+        <div class="profile-header">
+            <h1><i class="fa-solid fa-user"></i> Mi Perfil</h1>
+            <p>Gestiona tu información personal y preferencias de cuenta</p>
+        </div>
+
+        <div class="profile-content">
+            <!-- Sección izquierda: Información del perfil -->
+            <div class="profile-info-section">
+                <div class="profile-card">
+                    <div class="profile-header-card">
+                        <div class="profile-avatar-container">
+                            <div class="profile-avatar" id="profileAvatar">
+                                RP
+                            </div>
+                            <button class="change-avatar-btn" onclick="document.getElementById('avatarInput').click()">
+                                <i class="fa-solid fa-camera"></i>
+                            </button>
+                            <input type="file" id="avatarInput" accept="image/*" style="display: none;" onchange="changeAvatar(event)">
+                        </div>
+                        <div class="profile-name-info">
+                            <h2>Refugio Patitas Felices</h2>
+                            <p class="profile-role">Refugio de animales</p>
+                            <p class="profile-join-date">Miembro desde: Enero 2024</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">Publicaciones activas</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Adopciones completadas</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Denuncias activas</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-form-section">
+                    <h3><i class="fa-solid fa-id-card"></i> Información Personal</h3>
+                    
+                    <form id="profileForm" class="profile-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName"><i class="fa-solid fa-user"></i> Nombre completo</label>
+                                <input type="text" id="fullName" value="Refugio Patitas Felices" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="fa-solid fa-envelope"></i> Correo electrónico</label>
+                                <input type="email" id="email" value="refugio@patitas.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone"><i class="fa-solid fa-phone"></i> Teléfono de contacto</label>
+                            <input type="tel" id="phone" value="+57 321 456 7890">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address"><i class="fa-solid fa-location-dot"></i> Dirección</label>
+                            <input type="text" id="address" value="Calle 123 #45-67, Bogotá, Colombia">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userType"><i class="fa-solid fa-users"></i> Tipo de usuario</label>
+                            <div class="user-type-selector">
+                                <div class="user-type-option active" data-value="refuge">
+                                    <i class="fa-solid fa-house-chimney"></i>
+                                    <span>Refugio</span>
+                                </div>
+                                <div class="user-type-option" data-value="adopter">
+                                    <i class="fa-solid fa-user"></i>
+                                    <span>Adoptante</span>
+                                </div>
+                                <div class="user-type-option" data-value="volunteer">
+                                    <i class="fa-solid fa-hands-helping"></i>
+                                    <span>Voluntario</span>
+                                </div>
+                            </div>
+                            <input type="hidden" id="userType" value="refuge">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description"><i class="fa-solid fa-file-lines"></i> Descripción</label>
+                            <textarea id="description" rows="4">Refugio dedicado al rescate y cuidado de animales en situación de abandono. Trabajamos para encontrar hogares amorosos para cada una de nuestras mascotas.</textarea>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="submit" class="btn-save">Guardar cambios</button>
+                            <button type="button" class="btn-cancel" onclick="resetForm()">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Sección derecha: Configuraciones adicionales -->
+            <div class="profile-sidebar">
+                <div class="settings-card">
+                    <h3><i class="fa-solid fa-sliders"></i> Configuración de cuenta</h3>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Notificaciones por email</h4>
+                            <p>Recibir alertas sobre tus publicaciones y mensajes</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="emailNotifications" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Privacidad del perfil</h4>
+                            <p>Hacer visible mi perfil para otros usuarios</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="profileVisibility" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Mensajes directos</h4>
+                            <p>Permitir que otros usuarios me envíen mensajes</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="directMessages" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="security-card">
+                    <h3><i class="fa-solid fa-shield"></i> Seguridad</h3>
+                    
+                    <div class="security-item">
+                        <i class="fa-solid fa-key"></i>
+                        <div class="security-info">
+                            <h4>Cambiar contraseña</h4>
+                            <p>Actualiza tu contraseña regularmente</p>
+                        </div>
+                        <button class="btn-change-password" onclick="showChangePasswordModal()">Cambiar</button>
+                    </div>
+
+                    <div class="security-item">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                        <div class="security-info">
+                            <h4>Autenticación en dos pasos</h4>
+                            <p>Añade una capa extra de seguridad</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="twoFactorAuth">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="security-item">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <div class="security-info">
+                            <h4>Sesión activa</h4>
+                            <p>Tu sesión actual está activa</p>
+                        </div>
+                        <button class="btn-logout-session" onclick="logoutOtherSessions()">Cerrar otras sesiones</button>
+                    </div>
+                </div>
+
+                <div class="danger-zone-card">
+                    <h3><i class="fa-solid fa-triangle-exclamation"></i> Zona de peligro</h3>
+                    <p>Estas acciones son irreversibles. Procede con cuidado.</p>
+                    
+                    <div class="danger-actions">
+                        <button class="btn-danger" onclick="exportData()">
+                            <i class="fa-solid fa-download"></i> Exportar mis datos
+                        </button>
+                        <button class="btn-danger" onclick="requestAccountDeletion()">
+                            <i class="fa-solid fa-trash"></i> Solicitar eliminación de cuenta
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para cambiar contraseña -->
+    <div class="modal-overlay" id="passwordModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-key"></i> Cambiar contraseña</h3>
+                <button class="modal-close" onclick="closeChangePasswordModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="changePasswordForm">
+                    <div class="form-group">
+                        <label for="currentPassword">Contraseña actual</label>
+                        <input type="password" id="currentPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">Nueva contraseña</label>
+                        <input type="password" id="newPassword" required>
+                        <div class="password-strength">
+                            <div class="strength-bar"></div>
+                            <span class="strength-text">Seguridad: Baja</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmar nueva contraseña</label>
+                        <input type="password" id="confirmPassword" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeChangePasswordModal()">Cancelar</button>
+                <button class="btn-save" onclick="updatePassword()">Actualizar contraseña</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 PetConnect. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/perfil.js"></script>
+    <script>
+        // Funciones del menú de usuario (copiadas del dashboard)
+        function toggleUserMenu() {
+            const dropdown = document.getElementById('userDropdown');
+            const btn = document.querySelector('.user-menu-btn');
+            
+            dropdown.classList.toggle('active');
+            btn.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const userMenu = document.querySelector('.user-menu-container');
+            const dropdown = document.getElementById('userDropdown');
+            
+            if (!userMenu.contains(event.target) && dropdown.classList.contains('active')) {
+                dropdown.classList.remove('active');
+                document.querySelector('.user-menu-btn').classList.remove('active');
+            }
+        });
+
+        function logout() {
+            if (confirm('¿Estás seguro que deseas cerrar sesión?')) {
+                alert('Sesión cerrada exitosamente');
+                window.location.href = 'index.html';
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>
