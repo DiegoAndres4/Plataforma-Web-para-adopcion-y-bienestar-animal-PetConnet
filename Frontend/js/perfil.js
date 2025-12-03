@@ -40,7 +40,7 @@ function initializeUserTypeSelector() {
 // Formulario de perfil
 function initializeProfileForm() {
     const form = document.getElementById('profileForm');
-    const originalData = getFormData();
+    let originalData = getFormData();
     
     form.addEventListener('submit', function(e) {
         e.preventDefault();
