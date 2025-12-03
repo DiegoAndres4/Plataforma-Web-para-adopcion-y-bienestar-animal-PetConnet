@@ -185,23 +185,12 @@ body {
     gap: 0.3rem;
 }
 
-.input-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
 
-.input-icon {
-    position: absolute;
-    left: 19px;
-    color: #888;
-    font-size: 1.2rem;
-    pointer-events: none;
-}
 
+/* 1. Estilo base para TODOS los inputs */
 input {
     width: 100%;
-   padding: 12px 50px 12px 50px;
+    padding: 12px 20px; /* Padding estándar sin izquierda extra */
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 1rem;
@@ -210,25 +199,51 @@ input {
     color: #333;
 }
 
-input:focus {
-    outline: none;
-    border-color: #1cb58f;
-    box-shadow: 0 0 0 3px rgba(28, 181, 143, 0.2);
+
+.input-wrapper:has(.input-icon) input {
+    padding-left: 50px; /* Solo si hay un .input-icon dentro del wrapper */
 }
 
-.password-toggle {
+/* 3. Para password fields que también tienen toggle */
+.input-wrapper:has(.password-toggle) input {
+    padding-right: 45px; /* Espacio para el botón toggle */
+}
+
+/* 4. Asegurar que los íconos estén bien posicionados */
+.input-icon {
     position: absolute;
-    right: 15px;
+    left: 18px;
     color: #888;
-    cursor: pointer;
-    background: none;
-    border: none;
-    font-size: 1rem;
-    transition: color 0.3s;
+    font-size: 1.2rem;
+    pointer-events: none;
+    z-index: 1;
 }
 
-.password-toggle:hover {
-    color: #1cb58f;
+/* 5. Para responsive */
+@media (max-width: 480px) {
+    .input-wrapper:has(.input-icon) input {
+        padding-left: 45px;
+    }
+    
+    .input-icon {
+        left: 15px;
+    }
+}
+/* Para dispositivos móviles, ajusta también */
+@media (max-width: 480px) {
+    input {
+        padding: 12px 15px 12px 48px; /* Ajuste para móviles */
+    }
+    
+    .input-icon {
+        left: 15px;
+        font-size: 1rem;
+    }
+    
+    .password-toggle {
+        right: 15px;
+        font-size: 0.9rem;
+    }
 }
 
 .terms-group {
