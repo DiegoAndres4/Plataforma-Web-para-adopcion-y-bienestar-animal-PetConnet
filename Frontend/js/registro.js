@@ -69,112 +69,127 @@ function validateForm() {
 }
 
 // Manejo del envío del formulario
-document.getElementById('registerForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    if (validateForm()) {
-        // Obtener los datos del formulario
-        const userData = {
-            firstName: document.getElementById('firstName').value.trim(),
-            lastName: document.getElementById('lastName').value.trim(),
-            email: document.getElementById('email').value.trim(),
-            phone: document.getElementById('phone').value.trim() || null,
-            password: document.getElementById('password').value,
-            registrationDate: new Date().toISOString().split('T')[0]
-        };
-        
-        // Guardar en localStorage (simulación de base de datos)
-        const users = JSON.parse(localStorage.getItem('petconnect_users') || '[]');
-        
-        // Verificar si el usuario ya existe
-        const userExists = users.some(user => user.email === userData.email);
-        
-        if (userExists) {
-            alert('Ya existe una cuenta con este correo electrónico. Por favor, inicia sesión.');
-            return;
-        }
-        
-        // Agregar nuevo usuario
-        users.push(userData);
-        localStorage.setItem('petconnect_users', JSON.stringify(users));
-        
-        // Guardar estado de sesión automáticamente
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("userEmail", userData.email);
-        localStorage.setItem("userName", `${userData.firstName} ${userData.lastName}`);
-        
-        // Mostrar mensaje de éxito
-        const successMessage = document.getElementById('successMessage');
-        successMessage.style.display = 'flex';
-        
-        // Deshabilitar el formulario
-        document.querySelectorAll('#registerForm input, #registerForm button')
-            .forEach(el => el.disabled = true);
-        
-        // Redirigir después de 3 segundos
-        setTimeout(() => {
-            window.location.href = "index-logueado.html";
-        }, 3000);
+document.addEventListener('DOMContentLoaded', function() {
+    const registerForm = document.getElementById('registerForm');
+    if (!registerForm) {
+        console.error('No se encontró el formulario con ID registerForm');
+        return;
     }
-});
-
-// Enlaces a términos y condiciones (simulación)
-document.getElementById('termsLink').addEventListener('click', function(e) {
-    e.preventDefault();
-    alert('Aquí se mostrarían los Términos y Condiciones de PetConnect.');
-});
-
-document.getElementById('privacyLink').addEventListener('click', function(e) {
-    e.preventDefault();
-    alert('Aquí se mostraría la Política de Privacidad de PetConnect.');
-});
-
-// Validación en tiempo real
-document.querySelectorAll('#registerForm input').forEach(element => {
-    element.addEventListener('blur', function() {
-        // Solo validar este campo específico
-        const fieldId = this.id;
-        let isValid = true;
+    
+    registerForm.addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        if (fieldId === 'firstName' && !this.value.trim()) {
-            document.getElementById('firstNameError').style.display = 'block';
-            isValid = false;
-        }
-        
-        if (fieldId === 'lastName' && !this.value.trim()) {
-            document.getElementById('lastNameError').style.display = 'block';
-            isValid = false;
-        }
-        
-        if (fieldId === 'email') {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!this.value.trim() || !emailRegex.test(this.value.trim())) {
-                document.getElementById('emailError').style.display = 'block';
-                isValid = false;
+        if (validateForm()) {
+            // Obtener los datos del formulario
+            const userData = {
+                firstName: document.getElementById('firstName').value.trim(),
+                lastName: document.getElementById('lastName').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim() || null,
+                password: document.getElementById('password').value,
+                registrationDate: new Date().toISOString().split('T')[0]
+            };
+            
+            // Guardar en localStorage (simulación de base de datos)
+            const users = JSON.parse(localStorage.getItem('petconnect_users') || '[]');
+            
+            // Verificar si el usuario ya existe
+            const userExists = users.some(user => user.email === userData.email);
+            
+            if (userExists) {
+                alert('Ya existe una cuenta con este correo electrónico. Por favor, inicia sesión.');
+                return;
             }
-        }
-        
-        if (fieldId === 'password' && this.value.length < 6) {
-            document.getElementById('passwordError').style.display = 'block';
-            isValid = false;
-        }
-        
-        if (fieldId === 'confirmPassword') {
-            const password = document.getElementById('password').value;
-            if (this.value !== password) {
-                document.getElementById('confirmPasswordError').style.display = 'block';
-                isValid = false;
+            
+            // Agregar nuevo usuario
+            users.push(userData);
+            localStorage.setItem('petconnect_users', JSON.stringify(users));
+            
+            // Guardar estado de sesión automáticamente
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("userEmail", userData.email);
+            localStorage.setItem("userName", `${userData.firstName} ${userData.lastName}`);
+            
+            // Mostrar mensaje de éxito
+            const successMessage = document.getElementById('successMessage');
+            if (successMessage) {
+                successMessage.style.display = 'flex';
             }
-        }
-        
-        // Si el campo es válido, ocultar el mensaje de error
-        if (isValid && document.getElementById(fieldId + 'Error')) {
-            document.getElementById(fieldId + 'Error').style.display = 'none';
+            
+            alert('¡Registro exitoso! Bienvenido a PetConnect.');
+            
+            // Redirigir después de 3 segundos
+            setTimeout(() => {
+                window.location.href = "index-logueado.html";
+            }, 3000);
         }
     });
-});
 
-// Inicializar al cargar la página
-document.addEventListener('DOMContentLoaded', function() {
+    // Enlaces a términos y condiciones (simulación)
+    const termsLink = document.getElementById('termsLink');
+    if (termsLink) {
+        termsLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Aquí se mostrarían los Términos y Condiciones de PetConnect.');
+        });
+    }
+
+    const privacyLink = document.getElementById('privacyLink');
+    if (privacyLink) {
+        privacyLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Aquí se mostraría la Política de Privacidad de PetConnect.');
+        });
+    }
+
+    // Validación en tiempo real
+    const formInputs = document.querySelectorAll('#registerForm input');
+    formInputs.forEach(element => {
+        element.addEventListener('blur', function() {
+            // Solo validar este campo específico
+            const fieldId = this.id;
+            let isValid = true;
+            
+            if (fieldId === 'firstName' && !this.value.trim()) {
+                document.getElementById('firstNameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (fieldId === 'lastName' && !this.value.trim()) {
+                document.getElementById('lastNameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (fieldId === 'email') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!this.value.trim() || !emailRegex.test(this.value.trim())) {
+                    document.getElementById('emailError').style.display = 'block';
+                    isValid = false;
+                }
+            }
+            
+            if (fieldId === 'password' && this.value.length < 6) {
+                document.getElementById('passwordError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (fieldId === 'confirmPassword') {
+                const password = document.getElementById('password').value;
+                if (this.value !== password) {
+                    document.getElementById('confirmPasswordError').style.display = 'block';
+                    isValid = false;
+                }
+            }
+            
+            // Si el campo es válido, ocultar el mensaje de error
+            if (isValid) {
+                const errorElement = document.getElementById(fieldId + 'Error');
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
+            }
+        });
+    });
+    
     console.log('Página de registro de PetConnect cargada correctamente.');
 });
