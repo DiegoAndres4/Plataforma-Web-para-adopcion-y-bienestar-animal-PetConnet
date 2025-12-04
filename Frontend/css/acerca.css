@@ -1,0 +1,928 @@
+/* Estilos específicos para la página Acerca de */
+
+.educacion-section {
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+    min-height: calc(100vh - 140px);
+}
+
+.educacion-section h1 {
+    color: #2c3e50;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #7f8c8d;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Contenedor para la imagen */
+.banner-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.banner-container img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+.section-title {
+    color: #2c3e50;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.section-subtitle {
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+/* Estilos para las tarjetas de pilares */
+.pilar-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pilar-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: #1cb58f;
+}
+
+.pilar-card.active {
+    background: linear-gradient(135deg, #1cb58f 0%, #4fd1b5 100%);
+    color: white;
+    border-color: #1cb58f;
+}
+
+.pilar-card.active .icon {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.pilar-card.active h4,
+.pilar-card.active p {
+    color: white;
+}
+
+/* LOGOS PARA CADA PILAR */
+.pilar-card .icon {
+    width: 70px;
+    height: 70px;
+    background: #e8f6f3;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #1cb58f;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Logo específico para Cuidado Responsable */
+.pilar-card[data-card="1"] .icon {
+    background: linear-gradient(135deg, #e8f6f3 0%, #d1f2eb 100%);
+    color: #1cb58f;
+}
+
+/* Logo específico para Prevención del Maltrato */
+.pilar-card[data-card="2"] .icon {
+    background: linear-gradient(135deg, #fdedec 0%, #fadbd8 100%);
+    color: #e74c3c;
+}
+
+/* Logo específico para Beneficios de la Adopción */
+.pilar-card[data-card="3"] .icon {
+    background: linear-gradient(135deg, #fcebef 0%, #fadbd8 100%);
+    color: #e91e63;
+}
+
+.pilar-card h4 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.pilar-card p {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.card-arrow {
+    color: #bdc3c7;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.pilar-card.active .card-arrow {
+    color: white;
+    transform: rotate(180deg);
+}
+
+/* Información expandida de los pilares */
+.card-info {
+    background: #f8f9fa;
+    border-radius: 0 0 15px 15px;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    margin-top: -10px;
+    border: 1px solid #e1e8ed;
+    border-top: none;
+}
+
+.card-info.expanded {
+    padding: 1.5rem;
+    max-height: 500px;
+    margin-bottom: 1rem;
+}
+
+.card-info h5 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.card-info ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.card-info ul li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #555;
+}
+
+.card-info ul li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #1cb58f;
+    font-weight: bold;
+}
+
+.btn-learn-more {
+    background: #1cb58f;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-learn-more:hover {
+    background: #18a07e;
+    transform: translateY(-2px);
+}
+
+/* Estilos para las tarjetas de recursos */
+.recurso-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.recurso-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: #3498db;
+}
+
+.recurso-card.active {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+}
+
+.recurso-card.active .recurso-icon {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.recurso-card.active h4,
+.recurso-card.active p {
+    color: white;
+}
+
+.recurso-card .recurso-icon {
+    width: 70px;
+    height: 70px;
+    background: #e8f4fd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #3498db;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.recurso-card h4 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.recurso-card p {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.recurso-badge {
+    background: #e8f4fd;
+    color: #3498db;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.recurso-card.active .recurso-badge {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+/* Detalles expandidos de recursos */
+.recurso-detalle {
+    background: #f8f9fa;
+    border-radius: 0 0 15px 15px;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    margin-top: -10px;
+    border: 1px solid #e1e8ed;
+    border-top: none;
+}
+
+.recurso-detalle.expanded {
+    padding: 1.5rem;
+    max-height: 500px;
+    margin-bottom: 1rem;
+}
+
+.recurso-detalle h5 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Video preview */
+.video-preview {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e1e8ed;
+}
+
+.video-thumbnail {
+    width: 120px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.video-info h6 {
+    color: #2c3e50;
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+.video-info p {
+    color: #7f8c8d;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* Lista de infografías */
+.infografia-list {
+    margin-bottom: 1.5rem;
+}
+
+.infografia-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid #e1e8ed;
+}
+
+.infografia-item:hover {
+    transform: translateX(5px);
+    border-color: #3498db;
+}
+
+.infografia-item i {
+    color: #3498db;
+    margin-right: 0.75rem;
+    font-size: 1.2rem;
+    width: 24px;
+}
+
+.infografia-item span {
+    color: #2c3e50;
+    flex: 1;
+}
+
+/* Botones de recursos */
+.btn-ver-video,
+.btn-ver-infografias {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-ver-video:hover,
+.btn-ver-infografias:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* MODALES - CORREGIDOS Y COMPLETOS */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* Modal genérico (infoModal) */
+#infoModal .modal-content {
+    background: white;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    position: relative;
+    animation: modalSlideIn 0.3s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+#infoModal .modal-icon {
+    font-size: 3rem;
+    color: #1cb58f;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#infoModal #modalTitle {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#infoModal #modalDescription {
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#infoModal .modal-extra-info {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Modal de video */
+.video-modal {
+    max-width: 800px;
+    width: 95%;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    margin: 1rem 0;
+    border-radius: 10px;
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-description {
+    color: #7f8c8d;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+
+/* Modal de historias */
+.historias-modal {
+    max-width: 700px;
+    width: 95%;
+    background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+}
+
+.historias-container {
+    position: relative;
+    min-height: 300px;
+}
+
+.historia-item {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.historia-item.active {
+    display: block;
+}
+
+.historia-imagen {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #e91e63 0%, #f48fb1 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 3rem;
+    box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+}
+
+/* TEXTO MÁS CLARO Y LEGIBLE */
+.historia-item h4 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.historia-item p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.historia-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-top: 1.5rem;
+}
+
+.historia-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.historia-meta i {
+    color: #e91e63;
+}
+
+.historias-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.historia-prev,
+.historia-next {
+    background: #f8f9fa;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #2c3e50;
+    border: 2px solid #e1e8ed;
+}
+
+.historia-prev:hover,
+.historia-next:hover {
+    background: #e91e63;
+    color: white;
+    border-color: #e91e63;
+}
+
+.historias-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.historia-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e1e8ed;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.historia-dot.active {
+    background: #e91e63;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(233, 30, 99, 0.3);
+}
+
+/* Testimonios */
+.testimonios-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.testimonio {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.testimonio.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.testimonio p {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.testimonio p:before {
+    content: '"';
+    font-size: 4rem;
+    color: #1cb58f;
+    position: absolute;
+    left: -10px;
+    top: -20px;
+    opacity: 0.3;
+}
+
+.testimonio-author {
+    color: #1cb58f;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.testimonio-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.testimonio-prev,
+.testimonio-next {
+    background: #f8f9fa;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #2c3e50;
+}
+
+.testimonio-prev:hover,
+.testimonio-next:hover {
+    background: #1cb58f;
+    color: white;
+}
+
+.testimonio-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #bdc3c7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #1cb58f;
+    transform: scale(1.2);
+}
+
+/* Estilos comunes para todos los modales */
+.modal-content {
+    background: white;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    position: relative;
+    animation: modalSlideIn 0.3s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    margin: 1rem;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #7f8c8d;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: #f8f9fa;
+    color: #e74c3c;
+}
+
+.modal-body {
+    padding: 1rem;
+}
+
+/* Botón de cerrar específico para modales grandes */
+.video-modal .modal-close,
+.historias-modal .modal-close {
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.video-modal .modal-close:hover,
+.historias-modal .modal-close:hover {
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .educacion-section h1 {
+        font-size: 2.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .banner-container img {
+        height: 250px;
+    }
+    
+    .pilar-card,
+    .recurso-card {
+        padding: 1.5rem 1rem;
+        min-height: 180px;
+    }
+    
+    .pilar-card .icon,
+    .recurso-card .recurso-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .video-preview {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .video-thumbnail {
+        width: 100%;
+        height: 150px;
+    }
+    
+    .historia-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    
+    .historia-item p {
+        font-size: 1rem;
+        padding: 1rem;
+        line-height: 1.6;
+    }
+    
+    .testimonio p {
+        font-size: 1rem;
+        padding: 0;
+    }
+    
+    .testimonio p:before {
+        font-size: 3rem;
+        left: -5px;
+        top: -15px;
+    }
+    
+    /* Modales responsivos */
+    .video-modal,
+    .historias-modal {
+        width: 95%;
+        margin: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .modal-content {
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .educacion-section {
+        padding: 2rem 0;
+    }
+    
+    .educacion-section h1 {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .banner-container img {
+        height: 200px;
+    }
+    
+    .card-info.expanded,
+    .recurso-detalle.expanded {
+        padding: 1rem;
+    }
+    
+    .historia-item h4 {
+        font-size: 1.3rem;
+    }
+    
+    .historia-item p {
+        font-size: 0.95rem;
+        padding: 0.75rem;
+    }
+    
+    /* Modales móviles */
+    .modal-content {
+        padding: 1.5rem 1rem;
+        margin: 0.5rem;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .video-container {
+        margin: 0.5rem 0;
+    }
+}
+
+/* Clases de utilidad para mostrar/ocultar */
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: flex !important;
+}
