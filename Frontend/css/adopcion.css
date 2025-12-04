@@ -1,0 +1,232 @@
+/* ======== ESTILOS PARA PÁGINA DE ADOPCIÓN ======== */
+
+/* Contenedor principal */
+.adopcion-container {
+  background-color: #fff;
+  padding: 40px 60px;
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+/* Encabezado */
+.adopcion-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.adopcion-header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.adopcion-header p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 0;
+}
+
+/* Acciones (botón publicar) */
+.adopcion-actions {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.btn-publicar {
+  display: inline-block;
+  background-color: #1cb58f;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-publicar:hover {
+  background-color: #159b7b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(28, 181, 143, 0.3);
+  color: white;
+}
+
+/* Buscador */
+.adopcion-search {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #1cb58f;
+  box-shadow: 0 0 0 3px rgba(28, 181, 143, 0.1);
+}
+
+/* Filtros */
+.adopcion-filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.filter-btn {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  border-color: #1cb58f;
+  color: #1cb58f;
+}
+
+.filter-btn.active {
+  background-color: #1cb58f;
+  color: white;
+  border-color: #1cb58f;
+}
+
+/* Grid de mascotas */
+.adopcion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+/* Tarjetas de mascotas */
+.pet-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.pet-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.pet-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.pet-info {
+  padding: 16px;
+  text-align: center;
+}
+
+.pet-info h5 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.pet-info p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.btn-adoptar {
+  display: inline-block;
+  background-color: #1cb58f;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-adoptar:hover {
+  background-color: #159b7b;
+  transform: scale(1.02);
+  color: white;
+}
+
+/* Paginación */
+.adopcion-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.pagination-btn {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  color: #333;
+  padding: 10px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.pagination-btn:hover {
+  border-color: #1cb58f;
+  color: #1cb58f;
+}
+
+.pagination-btn.active {
+  background-color: #1cb58f;
+  color: white;
+  border-color: #1cb58f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .adopcion-container {
+    padding: 20px 30px;
+  }
+
+  .adopcion-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .adopcion-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .adopcion-filters {
+    gap: 8px;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
