@@ -33,8 +33,9 @@
 
 .banner-container img {
     width: 100%;
-    height: 350px;
-    object-fit: cover;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
     display: block;
 }
 
@@ -812,7 +813,7 @@
     }
     
     .banner-container img {
-        height: 250px;
+        max-height: 350px;
     }
     
     .pilar-card,
@@ -888,7 +889,7 @@
     }
     
     .banner-container img {
-        height: 200px;
+        max-height: 250px;
     }
     
     .card-info.expanded,
