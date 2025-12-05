@@ -1,419 +1,126 @@
-/* Estilos específicos para la página de registro */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
-    min-height: 100vh;
-}
-
-/* Nav styles inherit from global style.css */
-
-/* Contenedor principal */
-.register-page-container {
-    padding: 3rem 5%;
-    min-height: calc(100vh - 150px);
-}
-
-.register-main-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-}
-
-/* Columna izquierda - Información */
-.register-info {
+/* Contenedor general centrado (similar al login) */
+.registro-container {
+    min-height: calc(100vh - 160px); /* resta navbar + footer aprox */
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.register-illustration {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.register-illustration img {
-    max-width: 100%;
-    max-height: 300px;
-    object-fit: contain;
-    border-radius: 10px;
-}
-
-.register-info h1 {
-    color: #1cb58f;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.register-info .subtitle {
-    color: #666;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-}
-
-.register-benefits {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-}
-
-.benefit-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.8rem;
-    background: rgba(28, 181, 143, 0.05);
-    border-radius: 8px;
-    transition: transform 0.3s, background 0.3s;
-}
-
-.benefit-item:hover {
-    transform: translateX(5px);
-    background: rgba(28, 181, 143, 0.1);
-}
-
-.benefit-icon {
-    width: 40px;
-    height: 40px;
-    background-color: #1cb58f;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    color: white;
-    font-size: 1.2rem;
+    align-items: center;
+    padding: 40px 15px;
+    background: #f5f7fb;
 }
 
-.benefit-text {
-    font-size: 1rem;
-    color: #555;
-    font-weight: 500;
-}
-
-/* Columna derecha - Formulario */
-.register-form-container {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.register-form-container h2 {
-    color: #333;
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.form-subtitle {
-    color: #666;
-    margin-bottom: 2rem;
-    font-size: 1rem;
-}
-
-.register-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-}
-
-
-
-/* 1. Estilo base para TODOS los inputs */
-input {
+/* Caja principal del formulario */
+.registro-box {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    max-width: 420px;
     width: 100%;
-    padding: 12px 20px; /* Padding estándar sin izquierda extra */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: all 0.3s;
-    background-color: white;
-    color: #333;
+    padding: 30px 28px 32px;
+    text-align: center;
 }
 
-
-.input-wrapper:has(.input-icon) input {
-    padding-left: 50px; /* Solo si hay un .input-icon dentro del wrapper */
+/* Título y subtítulo */
+.registro-box h1 {
+    font-size: 1.9rem;
+    margin-bottom: 8px;
+    color: #1b325f;
+    font-weight: 700;
 }
 
-/* 3. Para password fields que también tienen toggle */
-.input-wrapper:has(.password-toggle) input {
-    padding-right: 45px; /* Espacio para el botón toggle */
+.registro-box .subtitle {
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-bottom: 24px;
 }
 
-/* 4. Asegurar que los íconos estén bien posicionados */
+/* Grupo de formulario */
+.registro-box .form-group {
+    margin-bottom: 16px;
+}
+
+/* Contenedor del input + icono */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #f0f4ff;
+    border-radius: 999px;
+    padding: 6px 14px;
+    border: 1px solid transparent;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.input-wrapper:focus-within {
+    border-color: #4b7bec;
+    box-shadow: 0 0 0 2px rgba(75, 123, 236, 0.15);
+    background: #ffffff;
+}
+
+/* Icono dentro del input */
 .input-icon {
-    position: absolute;
-    left: 18px;
-    color: #888;
-    font-size: 1.2rem;
-    pointer-events: none;
-    z-index: 1;
+    margin-right: 8px;
+    font-size: 1rem;
 }
 
-/* 5. Para responsive */
-@media (max-width: 480px) {
-    .input-wrapper:has(.input-icon) input {
-        padding-left: 45px;
-    }
-    
-    .input-icon {
-        left: 15px;
-    }
-}
-/* Para dispositivos móviles, ajusta también */
-@media (max-width: 480px) {
-    input {
-        padding: 12px 15px 12px 48px; /* Ajuste para móviles */
-    }
-    
-    .input-icon {
-        left: 15px;
-        font-size: 1rem;
-    }
-    
-    .password-toggle {
-        right: 15px;
-        font-size: 0.9rem;
-    }
-}
-
-.terms-group {
-    margin-top: 0.5rem;
-}
-
-.terms-label {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    color: #555;
-    line-height: 1.4;
-}
-
-.terms-label input[type="checkbox"] {
-    margin-top: 3px;
-    accent-color: #1cb58f;
-    transform: scale(1.1);
-}
-
-.terms-label a {
-    color: #1cb58f;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.terms-label a:hover {
-    text-decoration: underline;
-}
-
-.error-message {
-    color: #e74c3c;
-    font-size: 0.85rem;
-    margin-top: 5px;
-    display: none;
-}
-
-.success-message {
-    display: none;
-    align-items: center;
-    gap: 10px;
-    padding: 1rem;
-    background-color: #d4edda;
-    color: #155724;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-}
-
-.success-message i {
-    color: #155724;
-    font-size: 1.2rem;
-}
-
-.submit-btn {
-    background-color: #1cb58f;
-    color: white;
+/* Inputs */
+.input-wrapper input {
     border: none;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 1.1rem;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 6px 0;
+}
+
+/* Botón principal */
+.submit-btn {
+    width: 100%;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 0;
+    font-size: 1rem;
     font-weight: 600;
+    background: linear-gradient(135deg, #4b7bec, #3867d6);
+    color: #ffffff;
+    margin-top: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 1rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
 }
 
 .submit-btn:hover {
-    background-color: #18a07e;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(56, 103, 214, 0.35);
+    opacity: 0.97;
 }
 
-.submit-btn i {
-    font-size: 1.2rem;
+/* Link para ir a login */
+.login-link {
+    margin-top: 18px;
+    font-size: 0.9rem;
+    color: #6c757d;
 }
 
-.login-link-container {
-    text-align: center;
-    margin: 1.5rem 0;
-    padding-top: 1.5rem;
-    border-top: 1px solid #eee;
-}
-
-.login-link-container p {
-    color: #666;
-    font-size: 0.95rem;
-}
-
-.login-link-container a {
-    color: #1cb58f;
-    text-decoration: none;
+.login-link a {
+    color: #3867d6;
     font-weight: 600;
+    text-decoration: none;
 }
 
-.login-link-container a:hover {
+.login-link a:hover {
     text-decoration: underline;
 }
 
-.security-note {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: #666;
-    font-size: 0.85rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid #eee;
-}
-
-.security-icon {
-    color: #1cb58f;
-    font-size: 1rem;
-}
-
-footer {
-    background: #1cb58f;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 30px;
-}
-
 /* Responsive */
-@media (max-width: 1024px) {
-    .register-main-wrapper {
-        gap: 2rem;
+@media (max-width: 576px) {
+    .registro-box {
+        padding: 20px 18px 24px;
     }
-    
-    .register-info h1 {
-        font-size: 2.2rem;
-    }
-}
 
-@media (max-width: 768px) {
-    .register-main-wrapper {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .register-page-container {
-        padding: 2rem 5%;
-    }
-    
-    .nav-links {
-        display: none;
-    }
-    
-    .register-form-container {
-        padding: 2rem;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .register-info h1 {
-        font-size: 2rem;
-        text-align: center;
-    }
-    
-    .register-info .subtitle {
-        text-align: center;
-    }
-    
-    .register-benefits {
-        max-width: 400px;
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .register-page-container {
-        padding: 1.5rem;
-    }
-    
-    .register-form-container {
-        padding: 1.5rem;
-    }
-    
-    .register-info h1 {
-        font-size: 1.8rem;
-    }
-    
-    .register-form-container h2 {
+    .registro-box h1 {
         font-size: 1.6rem;
     }
-    
-    input {
-        padding: 12px 15px 12px 50px;
-    }
-    
-    .input-icon {
-        left: 12px;
+
+    .registro-box .subtitle {
         font-size: 0.9rem;
-    }
-    
-    .password-toggle {
-        right: 12px;
-        font-size: 0.9rem;
-    }
-    
-    .benefit-item {
-        padding: 0.6rem;
-    }
-    
-    .benefit-icon {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
     }
 }
