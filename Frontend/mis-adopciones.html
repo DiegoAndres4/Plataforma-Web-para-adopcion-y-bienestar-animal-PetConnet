@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Adopciones - PetConnect</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mis-adopciones.css">
+</head>
+<body>
+    <!-- Navbar (logueado) -->
+    <nav class="navbar navbar-expand-lg navbar-light site-navbar bg-white">
+        <div class="container">
+            <a class="navbar-brand logo" href="dashboard.html">
+                <img src="img/logo.png" alt="PetConnect">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Alternar navegación">
+                <span class="navbar-toggler-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Abrir menú</span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                    <li class="nav-item">
+                        <div class="user-menu-container">
+                            <div class="user-menu-btn" onclick="toggleUserMenu()">
+                                <div class="user-avatar">RP</div>
+                                <span class="user-name">Refugio Patitas Felices</span>
+                                <span class="dropdown-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                            </div>
+
+                            <div class="user-dropdown" id="userDropdown">
+                                <div class="dropdown-header">
+                                    <div class="user-avatar">RP</div>
+                                    <div class="dropdown-user-info">
+                                        <div class="dropdown-user-name">Refugio Patitas Felices</div>
+                                        <div class="dropdown-user-email">refugio@patitas.com</div>
+                                    </div>
+                                </div>
+
+                                <div class="dropdown-menu">
+                                    <a href="perfil.html" class="dropdown-item">
+        							<span class="dropdown-item-icon"><i class="fa-solid fa-user"></i></span>
+                                        <div class="dropdown-item-text">
+                                            <span class="dropdown-item-label">Mi Perfil</span>
+                                        </div>
+                                    </a>
+
+                                    <a href="mis-publicaciones.html" class="dropdown-item">
+        							<span class="dropdown-item-icon"><i class="fa-solid fa-paw"></i></span>
+                                        <div class="dropdown-item-text">
+                                            <span class="dropdown-item-label">Mis Publicaciones</span>
+                                            <span class="dropdown-item-description">Mascotas en adopción</span>
+                                        </div>
+                                    </a>
+
+                                    <a href="mis-adopciones.html" class="dropdown-item">
+        							<span class="dropdown-item-icon"><i class="fa-solid fa-heart"></i></span>
+                                        <div class="dropdown-item-text">
+                                            <span class="dropdown-item-label">Mis Adopciones</span>
+                                            <span class="dropdown-item-description">Historial de adopciones</span>
+                                        </div>
+                                    </a>
+
+                                    <a href="mis-denuncias.html" class="dropdown-item">
+        							<span class="dropdown-item-icon"><i class="fa-solid fa-exclamation-circle"></i></span>
+                                        <div class="dropdown-item-text">
+                                            <span class="dropdown-item-label">Mis Denuncias</span>
+                                            <span class="dropdown-item-description">Reportes realizados</span>
+                                        </div>
+                                    </a>
+                                    <a href="Contactenos.html" class="dropdown-item">
+        							<span class="dropdown-item-icon"><i class="fa-solid fa-envelope"></i></span>
+                                        <div class="dropdown-item-text">
+                                            <span class="dropdown-item-label">Contacto</span>
+                                        </div>
+                                    </a>
+
+                                    <div class="dropdown-divider"></div>
+
+                                    <a href="#" class="dropdown-item logout" onclick="logout()">
+                                        <span class="dropdown-item-icon"><i class="fa-solid fa-sign-out-alt"></i></span>
+                                        <div class="dropdown-item-text">
+                                            <span class="dropdown-item-label">Cerrar Sesión</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="adopciones-page">
+        <div class="adopciones-header">
+            <div class="adopciones-title">
+                <div class="icon"><i class="fa-solid fa-heart"></i></div>
+                <div>
+                    <h1>Mis Adopciones</h1>
+                    <p>Revisa el estado de tus solicitudes y adopciones finalizadas.</p>
+                </div>
+            </div>
+            <div class="adopciones-actions">
+                <a class="btn-ghost" href="#mascotas-sugeridas" onclick="showSugeridas(event)"><i class="fa-solid fa-search"></i> Buscar más mascotas</a>
+                <a class="btn-ghost" href="mis-publicaciones.html"><i class="fa-solid fa-paw"></i> Mis publicaciones</a>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-heart"></i></div>
+                <div class="stat-info">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">Adopciones finalizadas</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+                <div class="stat-info">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">En proceso</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-circle-xmark"></i></div>
+                <div class="stat-info">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">Canceladas</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="filters-bar">
+            <input type="text" placeholder="Buscar por nombre...">
+            <select>
+                <option value="todas">Todas</option>
+                <option value="en-proceso">En proceso</option>
+                <option value="finalizada">Finalizadas</option>
+                <option value="cancelada">Canceladas</option>
+            </select>
+            <select>
+                <option value="recientes">Más recientes</option>
+                <option value="antiguas">Más antiguas</option>
+            </select>
+        </div>
+
+        <div class="adopciones-grid">
+            <div class="adopcion-card">
+                <div class="adopcion-img">
+                    <img src="img/animal1.png" alt="Max">
+                    <span class="badge-estado en-proceso">En proceso</span>
+                </div>
+                <div class="adopcion-body">
+                    <h3>Max</h3>
+                    <div class="adopcion-meta">
+                        <span class="meta-item"><i class="fa-solid fa-hashtag"></i> AD-001</span>
+                        <span class="meta-item"><i class="fa-solid fa-calendar"></i> Solicitado: 02/12/2024</span>
+                        <span class="meta-item"><i class="fa-solid fa-location-dot"></i> Cúcuta</span>
+                    </div>
+                    <p class="adopcion-desc">Seguimos coordinando la visita domiciliaria. Te contactaremos para confirmar horarios.</p>
+                </div>
+                <div class="adopcion-footer">
+                    <span class="status-tag en-proceso"><i class="fa-solid fa-hourglass-half"></i> En proceso</span>
+                    <div class="adopcion-actions">
+                        <a class="btn-small" href="#"><i class="fa-solid fa-eye"></i> Ver detalles</a>
+                        <a class="btn-small" href="#"><i class="fa-solid fa-message"></i> Mensajes</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="adopcion-card">
+                <div class="adopcion-img">
+                    <img src="img/animal2.png" alt="Luna">
+                    <span class="badge-estado finalizada">Finalizada</span>
+                </div>
+                <div class="adopcion-body">
+                    <h3>Luna</h3>
+                    <div class="adopcion-meta">
+                        <span class="meta-item"><i class="fa-solid fa-hashtag"></i> AD-002</span>
+                        <span class="meta-item"><i class="fa-solid fa-calendar"></i> Finalizada: 12/11/2024</span>
+                        <span class="meta-item"><i class="fa-solid fa-location-dot"></i> Bogotá</span>
+                    </div>
+                    <p class="adopcion-desc">Gracias por darle un hogar. Recuerda mantener su esquema de vacunación al día.</p>
+                </div>
+                <div class="adopcion-footer">
+                    <span class="status-tag finalizada"><i class="fa-solid fa-check"></i> Finalizada</span>
+                    <div class="adopcion-actions">
+                        <a class="btn-small" href="#"><i class="fa-solid fa-file-lines"></i> Contrato</a>
+                        <a class="btn-small" href="#"><i class="fa-solid fa-camera"></i> Subir fotos</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="adopcion-card">
+                <div class="adopcion-img">
+                    <img src="img/animal3.png" alt="Rocky">
+                    <span class="badge-estado finalizada">Finalizada</span>
+                </div>
+                <div class="adopcion-body">
+                    <h3>Rocky</h3>
+                    <div class="adopcion-meta">
+                        <span class="meta-item"><i class="fa-solid fa-hashtag"></i> AD-003</span>
+                        <span class="meta-item"><i class="fa-solid fa-calendar"></i> Finalizada: 25/10/2024</span>
+                        <span class="meta-item"><i class="fa-solid fa-location-dot"></i> Medellín</span>
+                    </div>
+                    <p class="adopcion-desc">Seguimiento de 30 días completado. ¡Gracias por adoptar!</p>
+                </div>
+                <div class="adopcion-footer">
+                    <span class="status-tag finalizada"><i class="fa-solid fa-check"></i> Finalizada</span>
+                    <div class="adopcion-actions">
+                        <a class="btn-small" href="#"><i class="fa-solid fa-message"></i> Mensajes</a>
+                        <a class="btn-small" href="#"><i class="fa-solid fa-download"></i> Comprobante</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="sugeridas-section" id="mascotas-sugeridas">
+        <div class="sugeridas-header">
+            <div>
+                <p class="eyebrow">Explora sin salir</p>
+                <h2>Mascotas que podrían interesarte</h2>
+                <p class="sub">Sigue navegando aquí mismo; no perderás tu sesión.</p>
+            </div>
+            <a class="btn-ghost" href="mis-publicaciones.html"><i class="fa-solid fa-list"></i> Ver mis publicaciones</a>
+        </div>
+
+        <div class="sugeridas-grid">
+            <article class="sugerida-card">
+                <div class="sugerida-img">
+                    <img src="img/animal2.png" alt="Canela">
+                    <span class="chip">Cachorra</span>
+                </div>
+                <div class="sugerida-body">
+                    <div class="sugerida-title">
+                        <h3>Canela</h3>
+                        <span class="status-tag finalizada">Vacunada</span>
+                    </div>
+                    <p class="sugerida-meta"><i class="fa-solid fa-location-dot"></i> Bogotá</p>
+                    <p class="sugerida-desc">Juguetona y sociable, se adapta bien a familias con niños.</p>
+                    <div class="sugerida-actions">
+                        <a class="btn-small primary" href="adoptar-dashboard.html"><i class="fa-solid fa-heart"></i> Adoptar</a>
+                        <a class="btn-small" href="#"><i class="fa-solid fa-eye"></i> Ver detalles</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="sugerida-card">
+                <div class="sugerida-img">
+                    <img src="img/animal3.png" alt="Rocky">
+                    <span class="chip">Adulto</span>
+                </div>
+                <div class="sugerida-body">
+                    <div class="sugerida-title">
+                        <h3>Rocky</h3>
+                        <span class="status-tag en-proceso">Energético</span>
+                    </div>
+                    <p class="sugerida-meta"><i class="fa-solid fa-location-dot"></i> Medellín</p>
+                    <p class="sugerida-desc">Le encanta caminar y necesita un hogar con espacio para ejercitarse.</p>
+                    <div class="sugerida-actions">
+                        <a class="btn-small primary" href="adoptar-dashboard.html"><i class="fa-solid fa-heart"></i> Adoptar</a>
+                        <a class="btn-small" href="#"><i class="fa-solid fa-eye"></i> Ver detalles</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="sugerida-card">
+                <div class="sugerida-img">
+                    <img src="img/animal1.png" alt="Mia">
+                    <span class="chip">Joven</span>
+                </div>
+                <div class="sugerida-body">
+                    <div class="sugerida-title">
+                        <h3>Mia</h3>
+                        <span class="status-tag finalizada">Esterilizada</span>
+                    </div>
+                    <p class="sugerida-meta"><i class="fa-solid fa-location-dot"></i> Cúcuta</p>
+                    <p class="sugerida-desc">Cariñosa y tranquila, ideal para departamentos o espacios pequeños.</p>
+                    <div class="sugerida-actions">
+                        <a class="btn-small primary" href="adoptar-dashboard.html"><i class="fa-solid fa-heart"></i> Adoptar</a>
+                        <a class="btn-small" href="#"><i class="fa-solid fa-eye"></i> Ver detalles</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 PetConnect. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function toggleUserMenu() {
+            const dropdown = document.getElementById('userDropdown');
+            const btn = document.querySelector('.user-menu-btn');
+            dropdown.classList.toggle('active');
+            btn.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const userMenu = document.querySelector('.user-menu-container');
+            const dropdown = document.getElementById('userDropdown');
+            if (userMenu && !userMenu.contains(event.target) && dropdown && dropdown.classList.contains('active')) {
+                dropdown.classList.remove('active');
+                document.querySelector('.user-menu-btn').classList.remove('active');
+            }
+        });
+
+        function logout() {
+            if (confirm('¿Estás seguro que deseas cerrar sesión?')) {
+                alert('Sesión cerrada exitosamente');
+                window.location.href = 'index.html';
+            }
+            return false;
+        }
+
+        function showSugeridas(event) {
+            if (event) event.preventDefault();
+            const section = document.getElementById('mascotas-sugeridas');
+            if (!section) return;
+            section.classList.add('show');
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Si la URL ya trae el hash, mostrarlas sin perder la sesión
+        if (window.location.hash === '#mascotas-sugeridas') {
+            const section = document.getElementById('mascotas-sugeridas');
+            if (section) section.classList.add('show');
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
