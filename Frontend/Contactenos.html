@@ -4,28 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - PetConnect</title>
-    <!-- Bootstrap CSS primero para que sea la base -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- contactenos.css con estilos específicos (SIN style.css para evitar conflictos) -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Global styles (includes navbar styling) -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- contactenos.css con estilos específicos -->
     <link rel="stylesheet" href="css/contactenos.css">
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <a href="index.html" class="logo">
-            <img src="img/logo.png" alt="PetConnect">
-        </a>
-        <div class="nav-links">
-            <a href="adopcion.html">Adopción</a>
-            <a href="denuncias.html">Denuncias</a>
-            <a href="acerca.html">Acerca de</a>
-            <a href="Contactenos.html">Contacto</a>
-            <a href="login.html" class="login-btn">Login</a>
-        </div>
-    </nav>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg site-navbar bg-white">
+            <div class="container">
+                <a class="navbar-brand logo" href="index.html">
+                        <img src="img/logo.png" alt="PetConnect">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Alternar navegación">
+                    <span class="navbar-toggler-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Abrir menú</span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                        <li class="nav-item"><a class="nav-link" href="adopcion.html">Adopción</a></li>
+                        <li class="nav-item"><a class="nav-link" href="denuncias.html">Denuncias</a></li>
+                        <li class="nav-item"><a class="nav-link" href="acerca.html">Acerca de</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Contactenos.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link btn login-btn text-white ms-lg-3" href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
     <!-- Main Content for the Contact Page -->
     <main class="contact-page-container">
@@ -40,15 +50,15 @@
                 </p>
                 <ul class="contact-details">
                     <li class="contact-item">
-                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></div>
                         <span class="contact-item-text">+1 (555) 123-4567</span>
                     </li>
                     <li class="contact-item">
-                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
                         <span class="contact-item-text">ayuda@petconnect.com</span>
                     </li>
                     <li class="contact-item">
-                        <div class="contact-icon"><i class="fa-solid fa-map-marker-alt"></i></div>
+                        <div class="contact-icon"><i class="fa-solid fa-map-marker-alt" aria-hidden="true"></i></div>
                         <span class="contact-item-text">123 Pet Street, Animal City, AC 12345</span>
                     </li>
                 </ul>
@@ -63,7 +73,7 @@
                     <!-- Name Input -->
                     <div class="form-group">
                         <div class="input-wrapper">
-                            <i class="input-icon fa-solid fa-user"></i>
+                            <i class="input-icon fa-solid fa-user" aria-hidden="true"></i>
                             <input type="text" id="nombre" name="nombre" placeholder="Nombre Completo" required>
                         </div>
                     </div>
@@ -71,7 +81,7 @@
                     <!-- Email Input -->
                     <div class="form-group">
                         <div class="input-wrapper">
-                            <i class="input-icon fa-solid fa-at"></i>
+                            <i class="input-icon fa-solid fa-at" aria-hidden="true"></i>
                             <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
                         </div>
                     </div>
@@ -79,7 +89,7 @@
                     <!-- Subject Input -->
                     <div class="form-group">
                         <div class="input-wrapper">
-                            <i class="input-icon fa-solid fa-tag"></i>
+                            <i class="input-icon fa-solid fa-tag" aria-hidden="true"></i>
                             <input type="text" id="asunto" name="asunto" placeholder="Asunto (Ej: Consulta, Reporte, Sugerencia)" required>
                         </div>
                     </div>
@@ -87,7 +97,7 @@
                     <!-- Message Textarea -->
                     <div class="form-group">
                         <div class="input-wrapper">
-                             <i class="input-icon fa-solid fa-pen-to-square"></i>
+                             <i class="input-icon fa-solid fa-pen-to-square" aria-hidden="true"></i>
                              <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
                         </div>
                     </div>
@@ -104,6 +114,9 @@
     <footer>
         <p>&copy; 2025 PetConnect. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Bootstrap JS bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- 1. EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>

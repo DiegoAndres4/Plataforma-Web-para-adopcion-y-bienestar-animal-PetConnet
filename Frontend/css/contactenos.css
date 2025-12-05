@@ -4,7 +4,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
@@ -12,49 +11,8 @@ body {
     color: #333;
 }
 
-/* ======== NAVBAR (IDÉNTICO AL STYLE.CSS) ======== */
-.navbar {
-    background: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 50px;
-    border-bottom: 1px solid #ddd;
-}
-
-.navbar .logo {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-
-.navbar .logo img {
-    height: 50px;
-}
-
-.nav-links a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-}
-
-.nav-links a:hover {
-    color: #1cb58f;
-}
-
-.nav-links .login-btn {
-    border: 1px solid #1cb58f;
-    padding: 5px 15px;
-    border-radius: 5px;
-    color: #1cb58f;
-    background-color: transparent;
-}
-
-.nav-links .login-btn:hover {
-    background-color: #1cb58f;
-    color: white;
-}
+/* Navbar styles are provided globally in css/style.css to avoid duplication
+   and ensure a single source of truth for the site's header styling. */
 
 /* ======== FOOTER (IDÉNTICO AL STYLE.CSS) ======== */
 footer {
@@ -195,6 +153,14 @@ footer p {
     background-color: #fff;
 }
 
+/* Override global login/email styles so the email field matches the other inputs */
+.contact-form .input-wrapper input[type="email"] {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+}
+
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
     color: #999;
@@ -263,11 +229,11 @@ footer p {
 }
 
 @media (max-width: 768px) {
-    .navbar {
+    .site-navbar {
         padding: 15px 20px;
     }
 
-    .navbar .logo img {
+    .site-navbar .logo img {
         height: 40px;
     }
 
@@ -324,7 +290,7 @@ footer p {
 }
 
 @media (max-width: 480px) {
-    .navbar {
+    .site-navbar {
         flex-direction: column;
         gap: 15px;
         padding: 15px 10px;
@@ -559,11 +525,11 @@ footer p {
 }
 
 @media (max-width: 768px) {
-    .navbar {
+    .site-navbar {
         padding: 15px 20px;
     }
 
-    .navbar .logo img {
+    .site-navbar .logo img {
         height: 40px;
     }
 
@@ -623,7 +589,7 @@ footer p {
 }
 
 @media (max-width: 480px) {
-    .navbar {
+    .site-navbar {
         flex-direction: column;
         gap: 15px;
         padding: 15px 10px;
