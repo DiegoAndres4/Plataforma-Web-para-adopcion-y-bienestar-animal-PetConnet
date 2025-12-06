@@ -221,6 +221,7 @@
             if (confirm('¿Estás seguro que deseas cerrar sesión?')) {
                 // Aquí agregarías la lógica real para cerrar sesión
                 // Por ejemplo: limpiar localStorage, cookies, enviar a un endpoint de logout
+                localStorage.clear();
                 alert('Sesión cerrada exitosamente');
                 window.location.href = 'index.html'; // Redirigir a la página principal no logueada
             }

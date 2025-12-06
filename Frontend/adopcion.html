@@ -11,6 +11,56 @@
   <!-- Tus estilos -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/adopcion.css">
+
+  <style>
+    /* Estilos adicionales para loading y mensajes */
+    .loading-container {
+      text-align: center;
+      padding: 3rem;
+    }
+
+    .loading-spinner {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #ff6b6b;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .error-message {
+      background: #ffebee;
+      color: #c62828;
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .empty-message {
+      text-align: center;
+      padding: 3rem;
+      color: #666;
+    }
+
+    .empty-message i {
+      font-size: 4rem;
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+
+    /* Ocultar elementos que no se usan */
+    .adopcion-search,
+    .adopcion-filters {
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
@@ -20,16 +70,16 @@
       <a class="navbar-brand logo" href="index.html">
         <img src="img/logo.png" alt="PetConnect">
       </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
           <li class="nav-item"><a class="nav-link" href="adopcion.html">Adopción</a></li>
           <li class="nav-item"><a class="nav-link" href="denuncias.html">Denuncias</a></li>
           <li class="nav-item"><a class="nav-link" href="acerca.html">Acerca de</a></li>
           <li class="nav-item"><a class="nav-link" href="Contactenos.html">Contacto</a></li>
-          <li class="nav-item"><a class="nav-link btn login-btn text-white ms-lg-3" href="login.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link btn login-btn text-white ms-lg-3" href="login.html" id="loginBtn">Login</a></li>
         </ul>
       </div>
     </div>
@@ -45,15 +95,15 @@
 
     <!-- BOTÓN PUBLICAR -->
     <div class="adopcion-actions">
-      <a href="login.html" class="btn-publicar">+ Publicar Mascota en Adopción</a>
+      <a href="publicarmascota.html" class="btn-publicar" id="btnPublicar">+ Publicar Mascota en Adopción</a>
     </div>
 
-    <!-- BUSCADOR -->
+    <!-- BUSCADOR (Oculto) -->
     <div class="adopcion-search">
       <input id="search" type="text" class="search-input" placeholder="🔍 Busca por nombre, raza o ubicación">
     </div>
 
-    <!-- FILTROS (aún no funcionales) -->
+    <!-- FILTROS (Ocultos) -->
     <div class="adopcion-filters">
       <button class="filter-btn">Edad</button>
       <button class="filter-btn">Tamaño</button>
@@ -61,11 +111,20 @@
       <button class="filter-btn">Especie</button>
     </div>
 
+    <!-- LOADING -->
+    <div class="loading-container" id="loadingContainer">
+      <div class="loading-spinner"></div>
+      <p style="margin-top: 1rem; color: #666;">Cargando mascotas...</p>
+    </div>
+
+    <!-- MENSAJE DE ERROR -->
+    <div class="error-message" id="errorMessage" style="display: none;"></div>
+
     <!-- GRID DINÁMICO -->
     <div class="adopcion-grid" id="mascotas-container"></div>
 
-    <!-- PAGINACIÓN DINÁMICA -->
-    <div class="adopcion-pagination" id="pagination"></div>
+    <!-- PAGINACIÓN DINÁMICA (No se usa sin filtros) -->
+    <div class="adopcion-pagination" id="pagination" style="display: none;"></div>
 
   </div>
 
@@ -79,70 +138,140 @@
 
   <!-- SCRIPT DINÁMICO -->
   <script>
-    let paginaActual = 0;
-    let size = 6; // cantidad por página
+    console.log("🚀 Página de adopción cargada");
 
-    // Cargar mascotas desde API
+    // Verificar si está logueado
+    function verificarLogin() {
+      const isLoggedIn = localStorage.getItem("isLoggedIn");
+      const userName = localStorage.getItem("userName");
+      
+      if (isLoggedIn === "true" && userName) {
+        console.log("✅ Usuario logueado:", userName);
+        document.getElementById("loginBtn").textContent = userName;
+        document.getElementById("loginBtn").href = "dashboard.html";
+      } else {
+        console.log("ℹ️ Usuario no logueado");
+      }
+    }
+
+    // Cargar TODAS las mascotas desde API (sin filtros, sin paginación)
     async function cargarMascotas() {
-        const q = document.getElementById("search").value || "";
+      console.log("📤 Solicitando todas las mascotas...");
+      
+      const loadingContainer = document.getElementById("loadingContainer");
+      const errorMessage = document.getElementById("errorMessage");
+      const contenedor = document.getElementById("mascotas-container");
 
-        const url = http://localhost:8080/api/adopciones?page=${paginaActual}&size=${size}&q=${q};
+      // Mostrar loading
+      loadingContainer.style.display = "block";
+      errorMessage.style.display = "none";
+      contenedor.innerHTML = "";
+
+      try {
+        const url = `http://localhost:8081/api/adopciones/todas`;
+        console.log("🌐 URL:", url);
+
         const response = await fetch(url);
-        const data = await response.json();
+        console.log("📥 Respuesta:", response.status, response.statusText);
 
-        mostrarMascotas(data.content);
-        mostrarPaginacion(data.totalPages);
-    }
-
-    // Mostrar tarjetas
-    function mostrarMascotas(lista) {
-        const contenedor = document.getElementById("mascotas-container");
-        contenedor.innerHTML = "";
-
-        lista.forEach(m => {
-            contenedor.innerHTML += `
-                <div class="pet-card">
-                    <img src="${m.fotoUrl}" alt="${m.nombre}">
-                    <div class="pet-info">
-                        <h5>${m.nombre}</h5>
-                        <p>${m.descripcion}<br>${m.especie} • ${m.genero} • ${m.edadCategoria}</p>
-                        <a href="adoptar.html?id=${m.id}" class="btn-adoptar">Adoptar</a>
-                    </div>
-                </div>
-            `;
-        });
-    }
-
-    // Crear botones de paginación
-    function mostrarPaginacion(totalPaginas) {
-        const pagDiv = document.getElementById("pagination");
-        pagDiv.innerHTML = "";
-
-        for (let i = 0; i < totalPaginas; i++) {
-            pagDiv.innerHTML += `
-                <button 
-                    class="pagination-btn ${i === paginaActual ? 'active' : ''}"
-                    onclick="cambiarPagina(${i})"
-                >
-                ${i + 1}
-                </button>
-            `;
+        if (!response.ok) {
+          throw new Error(`Error del servidor: ${response.status}`);
         }
+
+        const mascotas = await response.json();
+        console.log("✅ Mascotas recibidas:", mascotas.length);
+        console.log("📋 Datos:", mascotas);
+
+        // Ocultar loading
+        loadingContainer.style.display = "none";
+
+        // Mostrar mascotas
+        if (mascotas.length === 0) {
+          mostrarMensajeVacio();
+        } else {
+          mostrarMascotas(mascotas);
+        }
+
+      } catch (error) {
+        console.error("💥 Error al cargar mascotas:", error);
+        loadingContainer.style.display = "none";
+        
+        errorMessage.textContent = `Error al cargar las mascotas: ${error.message}. Verifica que el servidor esté corriendo en http://localhost:8081`;
+        errorMessage.style.display = "block";
+      }
     }
 
-    function cambiarPagina(num) {
-        paginaActual = num;
-        cargarMascotas();
+    // Mostrar tarjetas de mascotas
+    function mostrarMascotas(lista) {
+      const contenedor = document.getElementById("mascotas-container");
+      contenedor.innerHTML = "";
+
+      console.log(`🎨 Mostrando ${lista.length} mascotas`);
+
+      lista.forEach((m, index) => {
+        console.log(`🐾 Mascota ${index + 1}:`, m.nombre, m.urlImagen);
+
+        const card = document.createElement('div');
+        card.className = 'pet-card';
+        card.innerHTML = `
+          <img src="${m.fotoUrl}" 
+               alt="${m.nombre}"
+               onerror="this.src='https://via.placeholder.com/300x250?text=Sin+Imagen'">
+          <div class="pet-info">
+            <h5>${m.nombre}</h5>
+            <p>
+              ${m.descripcion ? m.descripcion.substring(0, 100) + (m.descripcion.length > 100 ? '...' : '') : 'Sin descripción'}
+              <br>
+              <strong>${m.especie || 'N/A'} • ${m.genero || 'N/A'} • ${m.edadCategoria || 'N/A'}</strong>
+            </p>
+            <a href="adoptar.html?id=${m.id}" class="btn-adoptar">Conocer más</a>
+          </div>
+        `;
+        
+        contenedor.appendChild(card);
+      });
     }
 
-    // Activar búsqueda
-    document.getElementById("search").addEventListener("keyup", () => {
-        paginaActual = 0;
-        cargarMascotas();
+    // Mostrar mensaje cuando no hay mascotas
+    function mostrarMensajeVacio() {
+      const contenedor = document.getElementById("mascotas-container");
+      contenedor.innerHTML = `
+        <div class="empty-message" style="grid-column: 1 / -1;">
+          <i>🐾</i>
+          <h3>Aún no hay mascotas disponibles</h3>
+          <p>Sé el primero en publicar una mascota en adopción</p>
+          <a href="publicarmascota.html" class="btn-publicar" style="margin-top: 1rem; display: inline-block;">
+            + Publicar Mascota
+          </a>
+        </div>
+      `;
+    }
+
+    // Actualizar botón de publicar según estado de login
+    function actualizarBotonPublicar() {
+      const btnPublicar = document.getElementById("btnPublicar");
+      const isLoggedIn = localStorage.getItem("isLoggedIn");
+      
+      if (isLoggedIn === "true") {
+        btnPublicar.href = "publicarmascota.html";
+      } else {
+        btnPublicar.href = "login.html";
+      }
+    }
+
+    // Inicializar al cargar la página
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log("📄 DOM cargado, inicializando...");
+      verificarLogin();
+      actualizarBotonPublicar();
+      cargarMascotas();
     });
 
-    // Cargar al iniciar
-    cargarMascotas();
+    // Recargar al hacer foco en la ventana (por si publican algo)
+    window.addEventListener('focus', () => {
+      console.log("👁️ Ventana enfocada, recargando mascotas...");
+      cargarMascotas();
+    });
   </script>
 
 </body>

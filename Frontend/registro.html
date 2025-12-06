@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
     <!-- Estilos específicos del registro -->
     <link rel="stylesheet" href="css/registro.css">
 </head>
+
 <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg site-navbar bg-white">
@@ -20,9 +22,8 @@
             <a class="navbar-brand logo" href="index.html">
                 <img src="img/logo.png" alt="PetConnect">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false"
-                    aria-label="Alternar navegación">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Alternar navegación">
                 <span class="navbar-toggler-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Abrir menú</span>
             </button>
@@ -32,7 +33,8 @@
                     <li class="nav-item"><a class="nav-link" href="denuncias.html">Denuncias</a></li>
                     <li class="nav-item"><a class="nav-link" href="acerca.html">Acerca de</a></li>
                     <li class="nav-item"><a class="nav-link" href="Contactenos.html">Contacto</a></li>
-                    <li class="nav-item"><a class="nav-link btn login-btn text-white ms-lg-3" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link btn login-btn text-white ms-lg-3"
+                            href="login.html">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -48,7 +50,7 @@
                 <div class="form-group">
                     <div class="input-wrapper">
                         <span class="input-icon">👤</span>
-                        <input type="text" id="nombre" placeholder="Nombre completo" required>
+                        <input type="text" id="username" placeholder="Nombre de usuario" required>
                     </div>
                 </div>
 
@@ -84,40 +86,55 @@
 
     <!-- LÓGICA DE REGISTRO CON BACKEND -->
     <script>
-        const REGISTER_API = "http://localhost:8081/api/auth/register";
+        const REGISTER_API = "http://localhost:5054/api/usuarios";
 
         document.getElementById("registerForm").addEventListener("submit", async (e) => {
             e.preventDefault();
 
-            const nombre = document.getElementById("nombre").value.trim();
+            const username = document.getElementById("username").value.trim();
             const email = document.getElementById("email").value.trim();
             const password = document.getElementById("password").value.trim();
 
-            if (!nombre || !email || !password) {
+            if (!username || !email || !password) {
                 alert("Por favor completa todos los campos.");
                 return;
             }
 
             try {
+                console.log("Enviando registro:", { username, email, password });
+
                 const resp = await fetch(REGISTER_API, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ nombre, email, password })
+                    body: JSON.stringify({
+                        username: username,
+                        email: email,
+                        password: password,
+                        enabled: true,
+                        roles: [
+                            {
+                                "id": 1,
+                                "authority": "ROLE_ADMIN"
+                            }]
+                    })
                 });
 
+                console.log("Status HTTP:", resp.status);
+
                 if (!resp.ok) {
+                    if (resp.status === 400) {
+                        alert("El usuario o email ya existe.");
+                    } else {
+                        alert("Error al comunicarse con el servidor.");
+                    }
                     console.error("Error HTTP:", resp.status, resp.statusText);
-                    alert("Error al comunicarse con el servidor.");
                     return;
                 }
 
-                const data = await resp.json(); // AuthResponse: { success, mensaje, id, nombre, email, rol }
+                const data = await resp.json();
+                console.log("Respuesta del backend:", data);
 
-                if (!data.success) {
-                    alert(data.mensaje || "No se pudo registrar el usuario.");
-                    return;
-                }
-
+                // Si llegó aquí con status 200/201, el registro fue exitoso
                 alert("¡Cuenta creada correctamente! Ahora puedes iniciar sesión.");
                 window.location.href = "login.html";
 
@@ -128,4 +145,5 @@
         });
     </script>
 </body>
+
 </html>
