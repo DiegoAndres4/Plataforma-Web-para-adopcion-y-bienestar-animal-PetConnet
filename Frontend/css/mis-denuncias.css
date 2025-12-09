@@ -1,0 +1,104 @@
+/* Estilos para tarjetas de denuncias */
+.denuncia-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.denuncia-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.denuncia-imagen {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.denuncia-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.denuncia-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+}
+
+.denuncia-badge.revision { background: #FFA500; }
+.denuncia-badge.asignada { background: #4A90E2; }
+.denuncia-badge.en-curso { background: #9B59B6; }
+.denuncia-badge.resuelta { background: #27AE60; }
+.denuncia-badge.cancelada { background: #95A5A6; }
+
+.denuncia-info {
+    padding: 16px;
+}
+
+.denuncia-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    color: #2C3E50;
+}
+
+.denuncia-ubicacion {
+    color: #7F8C8D;
+    font-size: 0.9rem;
+    margin: 4px 0;
+}
+
+.denuncia-descripcion {
+    color: #34495E;
+    font-size: 0.95rem;
+    margin: 12px 0;
+    line-height: 1.5;
+}
+
+.denuncia-meta {
+    display: flex;
+    gap: 12px;
+    margin: 12px 0;
+    font-size: 0.85rem;
+    color: #7F8C8D;
+}
+
+.denuncia-prioridad {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.prioridad-baja { background: #E8F5E9; color: #27AE60; }
+.prioridad-media { background: #FFF9E6; color: #F39C12; }
+.prioridad-alta { background: #FFE5E5; color: #E74C3C; }
+.prioridad-urgente { background: #FFD6D6; color: #C0392B; }
+
+.denuncia-acciones {
+    margin-top: 12px;
+}
+
+.btn-ver {
+    width: 100%;
+    padding: 10px;
+    background: #16A085;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-ver:hover {
+    background: #138D75;
+}
