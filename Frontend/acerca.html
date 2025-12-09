@@ -4,26 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aprende y Concientiza - PetConnect</title>
-  <!-- Bootstrap CSS primero para que sea la base -->
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Luego style.css que define los estilos base -->
+
+  <!-- Tus estilos -->
   <link rel="stylesheet" href="css/style.css">
-  <!-- Finalmente acerca.css para sobrescribir solo lo necesario -->
   <link rel="stylesheet" href="css/acerca.css">
-  <!-- Font Awesome para iconos -->
+
+  <!-- Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 <body>
+
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg site-navbar bg-white">
     <div class="container">
       <a class="navbar-brand logo" href="index.html">
         <img src="img/logo.png" alt="PetConnect">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Alternar navegación">
-        <span class="navbar-toggler-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Abrir menú</span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
           <li class="nav-item"><a class="nav-link" href="adopcion.html">Adopción</a></li>
@@ -36,66 +40,66 @@
     </div>
   </nav>
 
-  <!-- Modal para video de YouTube -->
   <div class="modal-overlay" id="videoModal">
     <div class="modal-content video-modal">
       <button class="modal-close" id="closeVideoModal">&times;</button>
+
       <div class="modal-body">
         <h3 id="videoTitle">Video Educativo</h3>
+
         <div class="video-container">
-          <iframe id="youtubeVideo" width="560" height="315" src="" 
-                  title="YouTube video player" frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen></iframe>
+          <iframe id="youtubeVideo" width="560" height="315" src=""
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         </div>
+
         <p class="video-description">Aprende sobre el cuidado responsable de mascotas</p>
       </div>
     </div>
   </div>
 
-  <!-- Modal para historias de adopción -->
   <div class="modal-overlay" id="historiasModal">
     <div class="modal-content historias-modal">
       <button class="modal-close" id="closeHistoriasModal">&times;</button>
+
       <div class="modal-body">
         <h3>Historias de Éxito en Adopción</h3>
+
         <div class="historias-container">
+
           <div class="historia-item active">
-            <div class="historia-imagen">
-              <i class="fa-solid fa-dog"></i>
-            </div>
+            <div class="historia-imagen"><i class="fa-solid fa-dog"></i></div>
             <h4>Max - Rescatado y Amado</h4>
-            <p>Max fue encontrado abandonado en la calle con signos de desnutrición. Después de ser rescatado por PetConnect, fue adoptado por la familia Rodríguez. Hoy es un perro feliz, saludable y lleno de energía que ha transformado la vida de su nueva familia.</p>
+            <p>Max fue encontrado abandonado... ahora es feliz.</p>
             <div class="historia-meta">
               <span><i class="fa-solid fa-calendar"></i> Adoptado: Enero 2024</span>
               <span><i class="fa-solid fa-location-dot"></i> Bogotá, Colombia</span>
             </div>
           </div>
-          
+
           <div class="historia-item">
-            <div class="historia-imagen">
-              <i class="fa-solid fa-cat"></i>
-            </div>
+            <div class="historia-imagen"><i class="fa-solid fa-cat"></i></div>
             <h4>Luna - De la Calle al Hogar</h4>
-            <p>Luna era una gata callejera que vivía cerca de un restaurante. Un cliente preocupado la reportó a PetConnect. Fue rehabilitada y adoptada por una estudiante universitaria. Ahora disfruta de un hogar seguro y se ha convertido en la compañera perfecta.</p>
+            <p>Luna era una gata callejera... ahora tiene hogar.</p>
             <div class="historia-meta">
               <span><i class="fa-solid fa-calendar"></i> Adoptada: Marzo 2024</span>
               <span><i class="fa-solid fa-location-dot"></i> Medellín, Colombia</span>
             </div>
           </div>
-          
+
           <div class="historia-item">
-            <div class="historia-imagen">
-              <i class="fa-solid fa-heart"></i>
-            </div>
+            <div class="historia-imagen"><i class="fa-solid fa-heart"></i></div>
             <h4>Rocky - Segunda Oportunidad</h4>
-            <p>Rocky fue entregado a un refugio por su dueño anterior que ya no podía cuidarlo. A través de PetConnect, encontró una familia con niños que buscaban su primer perro. Rocky ha aprendido comandos básicos y se ha convertido en el mejor amigo de los niños.</p>
+            <p>Rocky fue entregado al refugio... ahora es feliz.</p>
             <div class="historia-meta">
-              <span><i class="fa-solid fa-calendar"></i> Adoptado: Febrero 2024</span>
+              <span><i class="fa-solid fa-calendar"></i> Febrero 2024</span>
               <span><i class="fa-solid fa-location-dot"></i> Cali, Colombia</span>
             </div>
           </div>
+
         </div>
+
         <div class="historias-nav">
           <button class="historia-prev"><i class="fa-solid fa-chevron-left"></i></button>
           <div class="historias-dots">
@@ -105,11 +109,11 @@
           </div>
           <button class="historia-next"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
+
       </div>
     </div>
   </div>
 
-  <!-- Modal genérico para información -->
   <div class="modal-overlay" id="infoModal">
     <div class="modal-content">
       <button class="modal-close" id="closeInfoModal">&times;</button>
@@ -122,9 +126,9 @@
     </div>
   </div>
 
-  <!-- Contenido principal -->
   <section class="educacion-section">
     <div class="container text-center">
+
       <h1>Aprende y Concientiza</h1>
       <p class="subtitle">Educación para el cuidado responsable y la protección animal</p>
 
@@ -133,8 +137,8 @@
       </div>
 
       <h2 class="section-title mt-5">Nuestros Pilares Educativos</h2>
-      <p class="section-subtitle">Haz clic en cada pilar para conocer más detalles</p>
-      
+      <p class="section-subtitle">Haz clic en cada pilar para conocer más</p>
+
       <div class="row g-4 mt-4">
         <div class="col-md-4">
           <div class="pilar-card" data-card="1">
@@ -143,21 +147,20 @@
             <p>Salud e higiene para tu mascota</p>
             <div class="card-arrow"><i class="fa-solid fa-chevron-down"></i></div>
           </div>
+
           <div class="card-info" id="info-1">
             <h5>¿Qué incluye?</h5>
             <ul>
-              <li>Guías de alimentación balanceada</li>
-              <li>Rutinas de ejercicio y paseo</li>
-              <li>Cuidado veterinario preventivo</li>
-              <li>Higiene y aseo básico</li>
-              <li>Señales de alerta de salud</li>
+              <li>Alimentación</li>
+              <li>Ejercicio</li>
+              <li>Cuidado veterinario</li>
             </ul>
             <button class="btn-learn-more" data-video="QW_E3n83m8g">
               <i class="fa-solid fa-play-circle"></i> Ver Video Educativo
             </button>
           </div>
         </div>
-        
+
         <div class="col-md-4">
           <div class="pilar-card" data-card="2">
             <div class="icon"><i class="fa-solid fa-shield"></i></div>
@@ -165,115 +168,115 @@
             <p>Identifica y actúa contra el abuso</p>
             <div class="card-arrow"><i class="fa-solid fa-chevron-down"></i></div>
           </div>
+
           <div class="card-info" id="info-2">
-            <h5>¿Cómo puedes ayudar?</h5>
+            <h5>¿Cómo ayudar?</h5>
             <ul>
-              <li>Identificar signos de maltrato</li>
-              <li>Mecanismos de denuncia legal</li>
-              <li>Primeros auxilios para animales</li>
-              <li>Redes de apoyo y rescate</li>
-              <li>Educación comunitaria</li>
+              <li>Primeros auxilios</li>
+              <li>Cómo denunciar</li>
             </ul>
+
             <button class="btn-learn-more" data-pdf="prevencion-maltrato.pdf">
-              <i class="fa-solid fa-file-pdf"></i> Descargar Guía PDF
+              <i class="fa-solid fa-file-pdf"></i> Descargar PDF
             </button>
           </div>
         </div>
-        
+
+
         <div class="col-md-4">
           <div class="pilar-card" data-card="3">
             <div class="icon"><i class="fa-solid fa-heart"></i></div>
             <h4>Beneficios de la Adopción</h4>
-            <p>Transforma vidas: la tuya y la de ellos</p>
+            <p>Transforma vidas</p>
             <div class="card-arrow"><i class="fa-solid fa-chevron-down"></i></div>
           </div>
+
           <div class="card-info" id="info-3">
-            <h5>Beneficios comprobados</h5>
+            <h5>Beneficios</h5>
             <ul>
-              <li>Reducción del estrés y ansiedad</li>
-              <li>Mayor actividad física</li>
-              <li>Desarrollo de responsabilidad</li>
-              <li>Compañía y apoyo emocional</li>
-              <li>Salvamento de vidas animales</li>
+              <li>Reduce estrés</li>
+              <li>Compañía</li>
             </ul>
+
             <button class="btn-learn-more" data-historias="adopcion">
-              <i class="fa-solid fa-book-open"></i> Ver Historias de Éxito
+              <i class="fa-solid fa-book-open"></i> Ver Historias
             </button>
           </div>
         </div>
+
       </div>
 
       <h2 class="section-title mt-5">Recursos Educativos</h2>
-      <p class="section-subtitle">Material gratuito para el cuidado animal</p>
-      
+
       <div class="row g-4 mt-4">
+
         <div class="col-md-6">
           <div class="recurso-card" data-recurso="1">
             <div class="recurso-icon"><i class="fa-solid fa-video"></i></div>
             <h4>Video Educativo</h4>
-            <p>Aprende sobre cuidados básicos para mascotas</p>
-            <div class="recurso-badge">Nuevo video</div>
+            <p>Aprende sobre cuidados básicos</p>
+            <div class="recurso-badge">Nuevo</div>
           </div>
+
           <div class="recurso-detalle" id="detalle-1">
             <h5>Video recomendado</h5>
+
             <div class="video-preview">
-              <img src="https://img.youtube.com/vi/hL-yIBieVxk/maxresdefault.jpg" alt="Video educativo" class="video-thumbnail">
+              <img src="https://img.youtube.com/vi/hL-yIBieVxk/maxresdefault.jpg">
               <div class="video-info">
-                <h6>Cuidados Básicos para Mascotas</h6>
-                <p>Consejos prácticos para el bienestar de tu compañero animal</p>
+                <h6>Cuidados básicos</h6>
+                <p>Consejos prácticos</p>
               </div>
             </div>
+
             <button class="btn-ver-video" data-video="hL-yIBieVxk">
               <i class="fa-solid fa-play"></i> Ver Video Completo
             </button>
           </div>
         </div>
-        
+
         <div class="col-md-6">
           <div class="recurso-card" data-recurso="2">
             <div class="recurso-icon"><i class="fa-solid fa-file-download"></i></div>
-            <h4>Infografías Educativas</h4>
-            <p>Material visual para aprender sobre cuidados</p>
-            <div class="recurso-badge">5 infografías</div>
+            <h4>Infografías</h4>
+            <p>Material visual</p>
+            <div class="recurso-badge">5 disponibles</div>
           </div>
+
           <div class="recurso-detalle" id="detalle-2">
-            <h5>Infografías disponibles</h5>
+            <h5>Infografías</h5>
             <div class="infografia-list">
-              <div class="infografia-item">
-                <i class="fa-solid fa-dog"></i>
-                <span>Guía completa de cuidado canino</span>
-              </div>
-              <div class="infografia-item">
-                <i class="fa-solid fa-cat"></i>
-                <span>Cuidados esenciales para gatos</span>
-              </div>
-              <div class="infografia-item">
-                <i class="fa-solid fa-stethoscope"></i>
-                <span>Señales de salud en mascotas</span>
-              </div>
+              <div class="infografia-item"><i class="fa-solid fa-dog"></i> Guía canina</div>
+              <div class="infografia-item"><i class="fa-solid fa-cat"></i> Cuidados felinos</div>
+              <div class="infografia-item"><i class="fa-solid fa-stethoscope"></i> Salud animal</div>
             </div>
-            <button class="btn-ver-infografias" data-link="https://hospitalveterinariolaarboleda.com/las-5-mejores-infografias-que-te-explican-todo-lo-que-debes-saber-sobre-tu-perro/">
-              <i class="fa-solid fa-external-link-alt"></i> Ver Infografías Online
+
+            <button class="btn-ver-infografias" data-link="https://google.com">
+              <i class="fa-solid fa-external-link-alt"></i> Ver Online
             </button>
           </div>
         </div>
+
       </div>
 
-      <!-- Sección de testimonios interactivos -->
-      <h2 class="section-title mt-5">Testimonios de la Comunidad</h2>
+      <h2 class="section-title mt-5">Testimonios</h2>
+
       <div class="testimonios-container mt-4">
         <div class="testimonio active">
-          <p>"Gracias a los recursos educativos de PetConnect, aprendí a cuidar mejor a mi perro adoptado. ¡Ha cambiado nuestras vidas!"</p>
-          <div class="testimonio-author">- María G., Bogotá</div>
+          <p>"Gracias a PetConnect aprendí a cuidar mejor a mi perro."</p>
+          <div class="testimonio-author">- María</div>
         </div>
+
         <div class="testimonio">
-          <p>"La guía PDF de prevención de maltrato me ayudó a identificar y reportar un caso de abuso animal en mi vecindario."</p>
-          <div class="testimonio-author">- Carlos R., Medellín</div>
+          <p>"Las guías me ayudaron a denunciar un maltrato."</p>
+          <div class="testimonio-author">- Carlos</div>
         </div>
+
         <div class="testimonio">
-          <p>"Las historias de adopción me inspiraron a darle un hogar a un gatito rescatado. ¡La mejor decisión de mi vida!"</p>
-          <div class="testimonio-author">- Ana L., Cali</div>
+          <p>"Las historias me animaron a adoptar un gato."</p>
+          <div class="testimonio-author">- Ana</div>
         </div>
+
         <div class="testimonio-nav">
           <button class="testimonio-prev"><i class="fa-solid fa-chevron-left"></i></button>
           <div class="testimonio-dots">
@@ -284,6 +287,7 @@
           <button class="testimonio-next"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -293,5 +297,33 @@
 
   <script src="js/acerca.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const videoModal = document.getElementById("videoModal");
+    const closeVideoModal = document.getElementById("closeVideoModal");
+    const youtubeVideo = document.getElementById("youtubeVideo");
+
+    document.querySelectorAll("[data-video]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const videoID = btn.getAttribute("data-video");
+        youtubeVideo.src = "https://www.youtube.com/embed/" + videoID + "?autoplay=1";
+        videoModal.style.display = "block";
+      });
+    });
+
+
+    closeVideoModal.addEventListener("click", () => {
+      videoModal.style.display = "none";
+      youtubeVideo.src = "";
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === videoModal) {
+        videoModal.style.display = "none";
+        youtubeVideo.src = "";
+      }
+    });
+  </script>
+
 </body>
 </html>
